@@ -65,7 +65,7 @@ So how do you get this template to work for your project? It is easier than you 
 Use git to clone this repository into your computer.
 
 ```
-git clone https://git....
+git clone https://github.com/FRA-UAS/mobcomwise23-24-team_entropy
 ```
 
 ### Usage
