@@ -1,18 +1,18 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/qFG2YiDH)
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-7f7980b617ed060a017424585567c406b6ee15c891e84e1186181d67ecf80aa0.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=13139491)
-# Mobile Computing README template
+# Mobile Computing README
 
 Template with examples
 <!-- PROJECT LOGO -->
 <img src="resources/images/FRA-UAS_Logo_rgb.jpg" width="150"/>
 
-<h1 align="center">Name of the group</h1>
+<h1 align="center">team_Entropy</h1>
 <p align="center">
     <strong>Description</strong>
     <br>
     Comment
     <br>
-    Members of the group incl. matriculation number
+    Kushal Prakash 1429800 TBU:Members of the group incl. matriculation number
 </p>
 <br/>
 
