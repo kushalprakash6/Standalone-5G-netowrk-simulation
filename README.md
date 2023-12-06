@@ -12,7 +12,9 @@ Template with examples
     <br>
     Comment
     <br>
-    Kushal Prakash 1429800 TBU:Members of the group incl. matriculation number
+    Kushal Prakash 1429800 
+    Karthik Kothamangala Sreenath 1438341
+    TBU:Members of the group incl. matriculation number
 </p>
 <br/>
 
