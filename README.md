@@ -6,7 +6,7 @@ Template with examples
 <!-- PROJECT LOGO -->
 <img src="resources/images/FRA-UAS_Logo_rgb.jpg" width="150"/>
 
-<h1 align="center">team_Entropy</h1>
+<h1 align="center">team_entropy</h1>
 <p align="center">
     <strong>Description</strong>
     <br>
@@ -16,7 +16,6 @@ Template with examples
     Karthik Kothamangala Sreenath 1438341
     Padmini Manjunatha 1427336
     Madhushree Manjunatha Lakshmidevi 1445185
-    TBU:Members of the group incl. matriculation number
 </p>
 <br/>
 
@@ -101,6 +100,24 @@ Think hard about anything that is clear to you but might not be clear for others
 using this aproach or why did you pick this solution instead?
 
 ### Used technologies
+
+To implement and emulate 5G core, we will be using the following tools.
+TBD: List will be updated as the project progresses (R: Kushal Prakash)
+
+### 1. Ubuntu desktop 22.04 LTS
+Ubuntu is a widely-used open-source Linux distribution known for its user-friendly interface, stability, and strong community support. The edition we use is designed for personal computers with a user-friendly interface and pre-installed applications, and Server. Ubuntu Long-Term Support (LTS) releases offer extended updates for stability. It uses the Debian package management system, and the default desktop environment is GNOME, although users can choose others.
+
+### 2. Open5GS (TBU: Version number)
+Open5GS is an open-source implementation of 5G core network elements, developed to support 5G standalone (SA) and non-standalone (NSA) network architectures. It provides a platform for researchers, developers, and operators to experiment with and deploy 5G core network functionalities. 
+
+### 3. UERANSIM (TBU: Version number)
+User Equipment (UE) simulator, commonly referred to as ueransim, is an open-source project designed to simulate a 5G User Equipment (UE). The primary goal of ueransim is to provide a tool for developers, researchers, and operators to test and experiment with 5G network functionalities.
+
+### 4. Vagrant (TBU: Version number)
+Vagrant is an open-source tool for building and managing virtualized development environments. It provides a command-line interface (CLI) to create and configure reproducible and shareable development environments. Vagrant is commonly used in software development to ensure that the development environment matches the production environment as closely as possible.
+
+### 5. Wireshark (TBU: Version number)
+Wireshark is a widely-used open-source network protocol analyzer that allows users to capture and inspect the data traveling back and forth on a computer network in real-time. It supports various protocols and provides a detailed view of network traffic, helping users troubleshoot network issues, analyze security threats, and understand the communication between devices. Wireshark's user-friendly interface allows both beginners and experienced network professionals to examine packet-level details, apply filters, and visualize network interactions.
 
 For sure mention all the technologies you used. If the technologies age in time you don't forget
 they are used and need to be replaced.
