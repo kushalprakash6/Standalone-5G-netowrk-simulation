@@ -36,5 +36,43 @@
 -> Create a new virtual machine on VMWare and install Linux distrubution (Ubuntu 20.04.6) on the virtual machine, following the installation wizard.
 -> Once the system is installed, update the system using these commands:
         => sudo apt update
--> Install the necessary dependecies for Open5GS.
 
+-> Install MongoDB using the following commands in terminal: 
+        => wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
+        => echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+        => sudo apt update
+
+-> As of now, MongoDB does not offer an official build specifically tailored for Ubuntu 22.04. Ubuntu 22.04 introduced libssl version 3 and does not provide libssl1.1 by default. To work around this, you can install libssl1.1 by including the Ubuntu 20.04 source in your repositories:
+        => echo "deb http://security.ubuntu.com/ubuntu focal-security main" | sudo tee /etc/apt/sources.list.d/focal-security.list
+        => sudo apt-get update && sudo apt-get install libssl1.1
+
+-> Then delete the focal-security list file you just created:
+        => sudo rm /etc/apt/sources.list.d/focal-security.list
+        => sudo apt install -y mongodb-org mongodb-org-database
+        => sudo systemctl start mongod
+        => sudo systemctl enable mongod
+
+-> Next step is to install NodeJS:
+        => curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+        => sudo apt install nodejs
+
+-> Install the necessary dependecies for Open5GS.
+        => sudo add-apt-repository ppa:open5gs/latest
+        => sudo apt-get install -y software-properties-common
+        => sudo apt-get -y update && apt install -y open5gs
+-> Now using the below commands in the terminal check for the status of Open5gs whether it is active/failed: 
+        => sudo service open5gs-amfd start
+        => sudo service open5gs-amfd status 
+
+-> Install UERANSIM:
+        => sudo apt install make gcc g++ libsctp-dev lksctp-tools iproute2 git
+        => sudo snap install cmake --classic
+-> Now create a spearate direcoty for UERANSIM:
+        => mkdir UERANSIM && cd UERANSIM
+-> Inside created directory open terminal and clone the git repository:
+        => git clone https://github.com/aligungr/UERANSIM
+        => cd ~/UERANSIM
+        => make
+-> By executing make in the UERANSIM directory, the build process defined in the Makefile is triggered, which typically involves tasks such as compiling individual source code files, resolving dependencies, and creating the final executable or binary files needed to run the UERANSIM software.
+        => ../build/nr-gnb -c open5gs-gnb.yaml
+-> By using the above command you can test the open5gs trying to establish SCTP connection, NG Setup Request, NG Setup Response received and NG Setup Procedure is successful.
