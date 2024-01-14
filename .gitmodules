@@ -1,0 +1,3 @@
+[submodule "UERANSIM-Conf"]
+	path = UERANSIM-Conf
+	url = https://github.com/aligungr/UERANSIM.git
