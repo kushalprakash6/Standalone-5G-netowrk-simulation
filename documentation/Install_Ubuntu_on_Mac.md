@@ -3,8 +3,8 @@
 ## Contents
 
 *   [Introduction](#Introduction)
-*   [Downloading and installing UTM:](#Downloading-and-installing-UTM:)
-*   [Downloading and installing Ubuntu ISO:](#Downloading-and-installing-Ubuntu-ISO:)
+*   [Downloading and installing UTM](#Downloading-and-installing-UTM:)
+*   [Downloading and installing Ubuntu ISO](#Downloading-and-installing-Ubuntu-ISO:)
 
 
 ## Introduction
@@ -115,10 +115,10 @@ For our project, we are using Ubuntu 22.04.3 LTS server for ARM64. After checkin
 
 22. Once booted, enter the username and password to login and type the following command
 
-* sudo apt install ubuntu-desktop *
+*$ sudo apt install ubuntu-desktop*
 
 23. This will install GUI for Ubuntu and after installation type the following command 
 
-* sudo reboot *
+*$ sudo reboot*
 
  
