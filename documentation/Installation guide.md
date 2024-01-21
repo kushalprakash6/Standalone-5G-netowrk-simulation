@@ -1,7 +1,6 @@
-# Installation guide for windows:
+# Installation guide for windows to install Ubuntu 20.04.6 using VMWare:
 
-# Here are the steps-by-step installations to install Ubuntu 20.04.6 using VMWare on a Windows System:
-# Requirements:
+## Requirements:
 -> Download and install VMWare Workstation Player or VMWare Workstation Pro (both have similar process for installing Ubuntu).
 -> Download the Ubuntu 20.04.6 ISO image from the official Ubuntu website, "https://releases.ubuntu.com/focal/ubuntu-20.04.6-desktop-amd64.iso"
 
@@ -19,6 +18,7 @@
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/installation-of-ubuntu/st4.png)
 
 4. Specify the disk capacity for your virtual machine. It is recommended to allocate at least 20 GB. Select "Store virtual disk as a single file" for better performance. Click "Next."
+
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/installation-of-ubuntu/st6.png)
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/installation-of-ubuntu/st7.png)
 
