@@ -64,7 +64,7 @@ In this file, we do not focus on building from sources, but on standard installa
     systemctl status mongod 
 ```   
     
-    ![MongoDB](resources/images/MongoDB.png)
+  ![MongoDB](resources/images/MongoDB.png)
     
 ### 3. Install Open5gs (latest version)
  
@@ -75,10 +75,10 @@ In this file, we do not focus on building from sources, but on standard installa
 ```   
     
     
-    ![5G_Running](resources/images/5G_Running.JPG)
+  ![5G_Running](resources/images/5G_Running.JPG)
 
 
-    ![Open5gsVersion](resources/images/Open5gsVersion.JPG)
+  ![Open5gsVersion](resources/images/Open5gsVersion.JPG)
     
 ### 4. Install WebUI
     
@@ -99,7 +99,7 @@ In this file, we do not focus on building from sources, but on standard installa
     sudo curl -fsSL https://open5gs.org/open5gs/assets/webui/install | sudo -E bash - 
 ```    
     
-    ![webui_running](resources/images/webui_running.png)
+  ![webui_running](resources/images/webui_running.png)
     
 ### 5. Start, restart or stop any Open5gs service
         
