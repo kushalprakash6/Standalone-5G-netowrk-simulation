@@ -32,20 +32,20 @@ To choose the version needed, after cloning the stream, do the following
 
 In this file, we do not focus on building from sources, but on standard installation.
 
-0. Install dependencies
+### 0. Install dependencies
 
 ```console
      sudo apt install python3-pip python3-setuptools python3-wheel ninja-build build-essential flex bison git cmake libsctp-dev libgnutls28-dev libgcrypt-dev libssl-dev libidn11-dev libmongoc-dev libbson-dev libyaml-dev libnghttp2-dev libmicrohttpd-dev libcurl4-gnutls-dev libnghttp2-dev libtins-dev libtalloc-dev meson 
 ```     
 
-1. Install gnupp packages
+### 1. Install gnupp packages
 
 ```console
   sudo apt update
   sudo apt install gnupg 
 ``` 
   
-2. Install MongoDB packages
+### 2. Install MongoDB packages
 
     MongoDB 4.4 is used in our guide, you can also install latest version on bare metal installation. MongoDB 6.0 was given in the quickstart guide.
     
@@ -66,7 +66,7 @@ In this file, we do not focus on building from sources, but on standard installa
     
     ![MongoDB](resources/images/MongoDB.png)
     
-3. Install Open5gs (latest version)
+### 3. Install Open5gs (latest version)
  
 ```console
     sudo add-apt-repository ppa:open5gs/latest
@@ -80,10 +80,10 @@ In this file, we do not focus on building from sources, but on standard installa
 
     ![Open5gsVersion](resources/images/Open5gsVersion.JPG)
     
-4. Install WebUI
+### 4. Install WebUI
     
 ```console
-      # Download and import the Nodesource GPG key
+    # Download and import the Nodesource GPG key
     sudo apt update
     sudo apt install -y ca-certificates curl gnupg
     sudo mkdir -p /etc/apt/keyrings
@@ -101,7 +101,7 @@ In this file, we do not focus on building from sources, but on standard installa
     
     ![webui_running](resources/images/webui_running.png)
     
-5. Start, restart or stop any Open5gs service
+### 5. Start, restart or stop any Open5gs service
         
  To start the NFs –
  ```console
@@ -166,7 +166,7 @@ In this file, we do not focus on building from sources, but on standard installa
  sudo systemctl stop open5gs-webui
  ```
 
-6. Check the IP addresses in the system
+### 6. Check the IP addresses in the system
 
     You should see ogstun in your list, if not available do the following, this is the IP address of the 5G core.
     
@@ -180,7 +180,7 @@ In this file, we do not focus on building from sources, but on standard installa
     
     ens03 is the machine IP address, note the IPv4 address, this is needed in the next step for configuring other files
     
-7. Now modify AMF, UPF and SMF. 
+### 7. Now modify AMF, UPF and SMF. 
 
     go to /etc/open5gs/ location
     
@@ -205,7 +205,7 @@ In this file, we do not focus on building from sources, but on standard installa
 ```      
       
       
-8. Add subscribers in the WebUI
+### 8. Add subscribers in the WebUI
 
     Connect to http://localhost:3000 or http://localhost:9999 and login with admin account.
 
