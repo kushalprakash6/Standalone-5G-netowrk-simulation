@@ -247,7 +247,8 @@ To begin, it is advisable to update your APT repositories and upgrade the instal
   sudo apt update
   sudo apt upgrade
 ```
-![UERANSIM upgrading]()
+![UERANSIM upgrading](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/Upgrading%20UERANSIM.jpg)
+
 
 
 ## Dependencies
@@ -261,7 +262,7 @@ These are the required dependencies to installed.
   sudo apt install iproute2
   sudo snap install cmake --classic
 ```
-![UERANSIM build successfully]()
+![UERANSIM build successfully](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/UERANSIM-built-sucessfully.png)
 
 
 
@@ -271,7 +272,7 @@ Note: Avoid installing cmake with sudo apt-get install cmake as it may install a
 ```console
   cd ~/UERANSIM
 ```
-![folder of UERANSIM]()
+![folder of UERANSIM](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/UERANSIM%20folder.jpg)
 
 Note: If the compilation process takes too long, you can speed it up by using make -j instead of make.
 
@@ -284,6 +285,6 @@ After successful compilation, the output binaries will be copied to ~/UERANSIM/b
 . nr-binder: Tool for utilizing UE's internet connectivity.
 . libdevbnd.so: Dynamic library for nr-binder
 
-![components of UERANSIM]()
+![components of UERANSIM](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/components%20in%20UERANSIM.jpg)
 
  
