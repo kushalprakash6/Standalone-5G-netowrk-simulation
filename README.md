@@ -83,16 +83,9 @@ CTRL + C
 CTRL + V
 ```
 
-## Here is where it's your turn
+## Architecture
 
-Here starts the main content of your README. This is why you did it for in the first place.
-To describe to future users of this project (including yourself) everything they need to know
-to be able to use it and understand it.
-
-Use visuals to help the reader understand better. An image, diagram, chart or code example says
-more than thousand words
-
-![Diagram](resources/images/diagram.jpg)
+![image]()
 
 ## Don't forget anything
 
@@ -137,6 +130,7 @@ MongoDB is a widely used, open-source NoSQL database management system designed 
 
 For sure mention all the technologies you used. If the technologies age in time you don't forget
 they are used and need to be replaced.
+
 
 ### Testing
 

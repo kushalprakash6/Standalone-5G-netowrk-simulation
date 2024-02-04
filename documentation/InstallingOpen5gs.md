@@ -1,4 +1,4 @@
-# Installation guide for Open5gs
+# Installation guide for Open5gs and UERANSIM
 
 ## Contents
 
@@ -225,7 +225,65 @@ In this file, we do not focus on building from sources, but on standard installa
     * Add images*
 
 
+## Installation guide on UERANSIM
+
+## Getting the UERANSIM
+Before proceeding, ensure that you have the most recent version of UERANSIM and clone the repository.
+
+```console
+  cd ~
+  git clone https://github.com/aligungr/UERANSIM
+```
+
+## Requirements
+1. Ubuntu 20.04.6 or latest version
+2. Cmake 3.17 or latest version
+3. gcc 9.0.0 or latest version
+4. g++ 9.0.0 or latest version
+
+To begin, it is advisable to update your APT repositories and upgrade the installed programs.
+
+```console
+  sudo apt update
+  sudo apt upgrade
+```
+![UERANSIM upgrading]()
 
 
+## Dependencies
+These are the required dependencies to installed.
+
+```console
+  sudo apt install make
+  sudo apt install gcc
+  sudo apt install g++
+  sudo apt install libsctp-dev lksctp-tools
+  sudo apt install iproute2
+  sudo snap install cmake --classic
+```
+![UERANSIM build successfully]()
+
+
+
+Note: Avoid installing cmake with sudo apt-get install cmake as it may install an older version. Instead, use sudo snap install cmake --classic or build cmake from sources directly.
+
+## Navigate to UERANSIM directory
+```console
+  cd ~/UERANSIM
+```
+![folder of UERANSIM]()
+
+Note: If the compilation process takes too long, you can speed it up by using make -j instead of make.
+
+## Verify Installation
+After successful compilation, the output binaries will be copied to ~/UERANSIM/build folder. You should see the following files:
+
+. nr-gnb: Main executable for 5G gNB (RAN)
+. nr-ue: Main executable for 5G UE
+. nr-cli: CLI tool for 5G gNB and UE
+. nr-binder: Tool for utilizing UE's internet connectivity.
+. libdevbnd.so: Dynamic library for nr-binder
+
+![components of UERANSIM]()
 
  
