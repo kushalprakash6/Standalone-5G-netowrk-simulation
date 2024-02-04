@@ -83,11 +83,6 @@ CTRL + C
 CTRL + V
 ```
 
-## Architecture
-
-![image]()
-
-## Don't forget anything
 
 ## Overview on 5G
 
@@ -102,8 +97,10 @@ mmWave Spectrum: 5G networks leverage millimeter-wave (mmWave) spectrum, which o
 Security Enhancements: 5G incorporates improved security features to protect user data and network integrity. This includes encryption, authentication protocols, and privacy safeguards.
 Global Standardization: 5G follows global standards set by organizations like the 3rd Generation Partnership Project (3GPP), ensuring interoperability and compatibility across different vendors and network operators.
 
-Think hard about anything that is clear to you but might not be clear for others. Why are you
-using this aproach or why did you pick this solution instead?
+## Architecture
+
+![Architecture]()
+
 
 ### Used technologies
 
