@@ -99,7 +99,7 @@ Global Standardization: 5G follows global standards set by organizations like th
 
 ## Architecture
 
-![Architecture]()
+![Architecture](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/arechitecture.png)
 
 
 ### Used technologies
