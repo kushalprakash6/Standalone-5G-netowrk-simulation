@@ -71,18 +71,6 @@ Use git to clone this repository into your computer.
 git clone https://github.com/FRA-UAS/mobcomwise23-24-team_entropy
 ```
 
-### Usage
-
-Use the well known command to copy the template
-
-```bash
-# Copy the content
-CTRL + C
-
-# Pase into your project
-CTRL + V
-```
-
 
 ## Overview on 5G
 
