@@ -70,7 +70,9 @@ Use git to clone this repository into your computer.
 ```
 git clone https://github.com/FRA-UAS/mobcomwise23-24-team_entropy
 ```
+### Methodology:
 
+Open5GS
 
 ## Overview on 5G
 
@@ -94,6 +96,7 @@ Global Standardization: 5G follows global standards set by organizations like th
 
 To implement and emulate 5G core, we will be using the following tools.
 TBD: List will be updated as the project progresses (R: Kushal Prakash)
+
 
 ### 1. Ubuntu desktop 22.04 LTS
 Ubuntu is a widely-used open-source Linux distribution known for its user-friendly interface, stability, and strong community support. The edition we use is designed for personal computers with a user-friendly interface and pre-installed applications, and Server. Ubuntu Long-Term Support (LTS) releases offer extended updates for stability. It uses the Debian package management system, and the default desktop environment is GNOME, although users can choose others.
