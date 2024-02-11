@@ -23,6 +23,14 @@ https://open5gs.org/open5gs/docs/guide/01-quickstart/
 If you decide to use different architecture or if you wish to use older versions, you can build the code from the sources. The link is below
 https://open5gs.org/open5gs/docs/guide/02-building-open5gs-from-sources/
 
+In case of virtualization on MacOs, you can use the following commands to install and run everything on MacOs on root, 
+this gives more flexibility and everything works on the latest latest version of Open5gs
+
+'''console
+sudo su
+cd
+'''
+
 To choose the version needed, after cloning the stream, do the following
 
 ```console
