@@ -42,9 +42,9 @@ Change the MAC address if you wish.
 
 After saving, it should work now, this can be verified by using the following command in the ubuntu VM and check the IP address.
 
-'''console
+```console
 
 ip addr show
 
-'''
+```
 
