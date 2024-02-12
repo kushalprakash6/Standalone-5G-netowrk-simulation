@@ -2,9 +2,22 @@
 
 ## Contents
 
-*   [Introduction](#Introduction)
-*   [Downloading and installing UTM](#Downloading-and-installing-UTM:)
-*   [Downloading and installing Ubuntu ISO](#Downloading-and-installing-Ubuntu-ISO:)
+- [Introduction](#introduction)
+- [Install Dependencies](#install-dependencies)
+- [Install gnupp Packages](#install-gnupp-packages)
+- [Install MongoDB Packages](#install-mongodb-packages)
+- [Install Open5gs (latest version)](#install-open5gs-latest-version)
+- [Install WebUI](#install-webui)
+- [Start, restart, or stop any Open5gs service](#start-restart-or-stop-any-open5gs-service)
+- [Check the IP addresses in the system](#check-the-ip-addresses-in-the-system)
+- [Modify AMF, UPF, and SMF](#modify-amf-upf-and-smf)
+- [Add subscribers in the WebUI](#add-subscribers-in-the-webui)
+- [Installation guide on UERANSIM](#installation-guide-on-ueransim)
+- [Getting the UERANSIM](#getting-the-ueransim)
+- [Requirements](#requirements)
+- [Dependencies](#dependencies)
+- [Navigate to UERANSIM directory](#navigate-to-ueransim-directory)
+- [Verify Installation](#verify-installation)
 
 
 ## Introduction
@@ -26,10 +39,10 @@ https://open5gs.org/open5gs/docs/guide/02-building-open5gs-from-sources/
 In case of virtualization on MacOs, you can use the following commands to install and run everything on MacOs on root, 
 this gives more flexibility and everything works on the latest latest version of Open5gs
 
-'''console
+```console
 sudo su
 cd
-'''
+```
 
 To choose the version needed, after cloning the stream, do the following
 
