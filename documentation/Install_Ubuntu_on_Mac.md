@@ -115,10 +115,68 @@ For our project, we are using Ubuntu 22.04.3 LTS server for ARM64. After checkin
 
 22. Once booted, enter the username and password to login and type the following command
 
-*$ sudo apt install ubuntu-desktop*
-
+```console
+sudo apt install ubuntu-desktop
+```
 23. This will install GUI for Ubuntu and after installation type the following command 
 
-*$ sudo reboot*
+```console
+$ sudo reboot
+```
+
+## Setting static IP address
+
+DHCP is active by default and every time you restart the VMs, there are high chances that the IP address will change every time, to avoid changing it in all the configurations, we will have to set a static IP address. 
+The following steps describes on how it can be achieved
+ Step 1: Open terminal window
+
+ Step 2: Type the following command
+
+ ```console
+sudo nano /etc/netplan/01-netcfg.yaml
+```
+Enter password if prompted.
+Netplan contains all the network related configurations and adding our code will help in giving our inputs on how the network should be setup
+
+```console                                                                                     
+# /etc/netplan/01-netcfg.yaml
+
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s1:   # Your Ethernet interface name
+      dhcp4: no
+      dhcp6: no
+      addresses: [192.168.0.123/24]   # Static IP address and subnet mask
+      gateway4: 192.168.0.1   # Gateway IP address
+      nameservers:
+        addresses: [8.8.8.8, 8.8.4.4]   # DNS server addresses
+      routes:
+        - to: 0.0.0.0/0
+          via: 192.168.0.1   # Default gateway
+```
+Save the file
+
+Step3: Apply the network configuration
+
+```console
+sudo netplan apply
+```
+
+You can use the following commands to check the IP address of the system, this can be verified if is static even after restart
+
+```console
+ip addr show
+```
+or
+```console
+ifconfig
+```
+You can also check the IP route using
+
+```console
+ip route
+```
 
  
