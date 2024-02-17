@@ -48,6 +48,25 @@
 
 Compared to 4G network 5G offers high speed data rates and connectivity even during huge user volume. Along with this there are a variety of other applications supported by 5G network. The goal of a network slicing design for a 5G network is to increase network flexibility and dynamics to accommodate contemporary network applications. In this project, we have implemented a 5G Stand Alone (SA) network using Open5gs as a 5G core and UERANSIM as 5G-RAN. The main objective of this project is to implement network slicing to provide File Sharing, Streaming and VOIP calling services between two tenant groups. We configured Kamailio, Next Cloud and Owncast servers in different Vms to provide VOIP Calling, File Sharing and Streaming services respectively. The tenant groups were able to access the services using the dedicated slices as per their requirements.
 
+## Definition and Abbreviations
+
+5G SA                         5G Stand Alone
+AMF                           Access and Mobility Management Function
+5QI                           5G QoS Identifier
+NRF                           Network Repository Function
+UE                            User Equipment
+NSSF                          Network Slice Selection Function
+PDU                           Protocol Data Unit
+NGAP                          Next Generation Application Protocol
+SMF                           Session Management Function
+SD                            Slice Differentiator
+SST                           Slice/Service Type
+SDN                           Software Defined Network
+UPF                           User Plane Function
+RAN                           Radio Access Network
+PCF                           Policy Control Function
+VOIP                          Voice Over Internet Protocol
+
 ## Introduction
 
 The fundamental architectural concepts and technological advancements of 5G distinguish it from earlier generations of mobile communication networks. Key elements like network slicing and CUPS play pivotal roles in realizing the separation of control and user planes. Additionally, through network slicing, multiple logical (virtual) networks can be established on the same physical infrastructure to cater to diverse consumers and services. To implement the principles of CUPS and Network Slicing in the 5G network, it is essential to integrate Network Function Virtualization, Software Defined Networking, and Cloud-Native technologies into the core network design. These technologies are aimed at enhancing the adaptability, scalability, and flexibility of the 5G core network.
@@ -57,12 +76,19 @@ The fundamental architectural concepts and technological advancements of 5G dist
 5G, or fifth-generation, is the latest standard in mobile telecommunications technology, succeeding 4G/LTE. It represents a significant advancement in terms of speed, capacity, and connectivity, aiming to provide faster and more reliable communication for both consumers and businesses. Key features of 5G include:
 
 Higher Data Rates: 5G offers substantially higher data rates compared to its predecessors, with peak data rates reaching several gigabits per second. This enables faster downloads, improved streaming quality, and enhanced overall network performance.
+
 Low Latency: 5G reduces latency, the time it takes for data to travel from the source to the destination and back, to a few milliseconds. This low latency is crucial for applications that require real-time responsiveness, such as augmented reality (AR), virtual reality (VR), and autonomous vehicles.
+
 Increased Network Capacity: 5G networks can support a significantly higher number of connected devices per square kilometer. This increased capacity is essential for the growing number of Internet of Things (IoT) devices and the expanding digital ecosystem.
+
 Network Slicing: 5G introduces the concept of network slicing, allowing network operators to create virtualized and customized "slices" of the network tailored to specific use cases, such as enhanced mobile broadband, massive machine-type communication, and ultra-reliable low-latency communication.
+
 Massive MIMO (Multiple Input, Multiple Output): 5G utilizes advanced antenna technologies like Massive MIMO, which involves deploying a large number of antennas at base stations to improve spectral efficiency and increase data throughput.
+
 mmWave Spectrum: 5G networks leverage millimeter-wave (mmWave) spectrum, which offers high bandwidth for faster data transfer. However, these higher frequencies have shorter range and can be impacted by obstacles, requiring careful network planning and deployment.
+
 Security Enhancements: 5G incorporates improved security features to protect user data and network integrity. This includes encryption, authentication protocols, and privacy safeguards.
+
 Global Standardization: 5G follows global standards set by organizations like the 3rd Generation Partnership Project (3GPP), ensuring interoperability and compatibility across different vendors and network operators.
 
 ### User Equipements (UEs)
@@ -106,6 +132,24 @@ The Unified Data Repository is a critical component within the 5G network archit
 
 ### Authentication Server Function (AUSF)
 The Authentication Server Function is a crucial component in the 5G network architecture responsible for providing authentication services to verify the identity of User Equipment and ensure secure access to the 5G network. The AUSF plays a pivotal role in the initial authentication of UEs, contributing to the establishment of secure connections. It interacts with other network functions, including the Access and Mobility Management Function and the Unified Data Management, to authenticate users and authorize their access to network resources. The AUSF's responsibilities include validating credentials, generating authentication vectors, and ensuring the integrity and security of the authentication process. By enforcing robust authentication mechanisms, the AUSF enhances the overall security posture of 5G networks, safeguarding against unauthorized access and potential security threats.
+
+## Services
+
+### VOIP
+
+VOIP, the acronym for Voice over IP, has revolutionized communication by carrying voice calls over the internet instead of traditional phone lines. This allows for cost-effective communication, seamless integration with other internet services, and exciting features like video calls and instant messaging. But to make it all work seamlessly, you need players like Kamailio and Linphone.
+
+Kamailio, an open-source powerhouse, acts as the central server in a VOIP setup. Think of it as the traffic conductor, orchestrating call routing, security, and other essential functions for your VOIP network. It's highly customizable and scalable, making it suitable for anything from small home networks to large-scale corporate setups.
+
+Linphone, on the other hand, is your friendly neighborhood client software. Available on various platforms like Windows, macOS, Linux, Android, and iOS, it allows you to make and receive calls, video calls, and instant messages using the services provided by Kamailio. So, while Kamailio handles the behind-the-scenes magic, Linphone is your interface to the world of VOIP communication.
+
+Together, Kamailio and Linphone form a dynamic duo, making VOIP a reality for users. Kamailio ensures everything runs smoothly and securely, while Linphone empowers you to connect and communicate with ease. But their capabilities extend beyond just basic calling. Kamailio can be used for other SIP-based applications like instant messaging and presence services, while Linphone offers various plugins and extensions for further customization and features.
+
+This brief overview hopefully gives you a clearer picture of how VOIP, Kamailio, and Linphone work together to bring the power of internet-based communication to your fingertips. Remember, there's always more to explore, and both Kamailio and Linphone have active communities ready to answer your questions and guide you further on your VOIP journey.
+
+## File transfer
+
+## Video streaming
 
 ## Used technologies
 
