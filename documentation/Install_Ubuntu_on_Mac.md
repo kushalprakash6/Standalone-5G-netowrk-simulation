@@ -179,4 +179,10 @@ You can also check the IP route using
 ip route
 ```
 
+You can also use the following command to check all the gateways
+
+```console
+netstat -rn
+```
+
  
