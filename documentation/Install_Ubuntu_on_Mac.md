@@ -145,16 +145,13 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-    enp0s1:   # Your Ethernet interface name
-      dhcp4: no
-      dhcp6: no
-      addresses: [192.168.0.123/24]   # Static IP address and subnet mask
-      gateway4: 192.168.0.1   # Gateway IP address
+    enp0s1:
+      addresses:
+        - 192.168.64.10/24
+      gateway4: 192.168.0.1  # Make sure to adjust the gateway address accordingly
       nameservers:
-        addresses: [8.8.8.8, 8.8.4.4]   # DNS server addresses
-      routes:
-        - to: 0.0.0.0/0
-          via: 192.168.0.1   # Default gateway
+        addresses: [8.8.8.8, 8.8.4.4]  # Optional: DNS server addresses
+
 ```
 Save the file
 
