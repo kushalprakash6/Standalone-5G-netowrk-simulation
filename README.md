@@ -244,7 +244,7 @@ Please make sure to update tests as appropriate.
 5. 	https://open5gs.org/open5gs/docs/guide/01-quickstart/
 6. 	https://open5gs.org/open5gs/docs/guide/02-building-open5gs-from-sources/
 7. 	https://github.com/aligungr/UERANSIM/wiki/Installation
-8. 	
+8. 	https://free5gc.org/guide/2-config-vm-en/
 
 [react-markdown][react-markdown] - Project which served as an inspiration for this README
 
