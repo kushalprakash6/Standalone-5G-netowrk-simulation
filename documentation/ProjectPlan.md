@@ -32,6 +32,7 @@
   - Tried setting up Ubuntu 22.x ARM arch in Mac UTM
 2. Setting up Ubuntu on baremetal - NAT was harder as not many bare metal ubuntu PCs were available
 3. Solving issues regarding installations and Ubuntu usage
+4. Added info about 5G core and tools used
 
 * Christmas break *
 
@@ -43,12 +44,13 @@
 2. Installing UERANSIM on baremetal Ubuntu
 3. Building Open5gs from sources on ARM architecture
 4. Checking this issue - https://github.com/open5gs/open5gs/discussions/2782#discussioncomment-8070985
+5. Updated documentation about the tools used and the process
 
 
 ### Sprint 4
 
 1. Trying network slicing by splitting sst, sd and name
-2. Documentation
+2. Documentation on installation guides
 3. Trying Oracle VM on Mac for Ubuntu installation
 4. Designing network architecure
 5. Review initial architecture
@@ -61,6 +63,8 @@
 3. Trying to install nextcloud for file transfer
 
 ### Sprint 6
+1. Documentation of FAQs and report
+2. Implementing next cloud and linphone
 
 
 
