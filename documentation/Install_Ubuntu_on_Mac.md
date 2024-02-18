@@ -3,8 +3,8 @@
 ## Contents
 
 *   [Introduction](#Introduction)
-*   [Downloading and installing UTM](#Downloading-and-installing-UTM:)
-*   [Downloading and installing Ubuntu ISO](#Downloading-and-installing-Ubuntu-ISO:)
+*   [Downloading and installing UTM](#Downloading-and-installing-UTM)
+*   [Downloading and installing Ubuntu ISO](#Downloading-and-installing-Ubuntu-ISO)
 
 
 ## Introduction
@@ -23,12 +23,12 @@ One way to install Ubuntu on MacOs is using UTM application. UTM is a free softw
 For our project, we are using Ubuntu 22.04.3 LTS server for ARM64. After checking sveral versions and versions for various architecture, this one seems to work the best at the moment. You can try different versions and steps might vary a little, but most of the steps will remain the same.
 
 
-## Downloading and installing UTM:
+## Downloading and installing UTM
 1. Open web browser and go to https://mac.getutm.app and click on download
 2. Install the package and the application will be ready to use.
 
 
-## Downloading and installing Ubuntu ISO:
+## Downloading and installing Ubuntu ISO
 1. Open web browser and go to https://ubuntu.com/download/server/arm and download the latest LTS version available. Currently it is 22.04.3.
 
 2. Open UTM application
