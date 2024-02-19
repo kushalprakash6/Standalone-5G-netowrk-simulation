@@ -11,7 +11,7 @@
 ## Roles
 
 1. Kushal Prakash - Project planning, project tracking, product owner, developer, reviewer, documentation
-
+2. Karthik Kothamangala Sreenth - Project planning, developer, System Architect, Documentation.
    
 ## Sprint overview - Kushal
 
