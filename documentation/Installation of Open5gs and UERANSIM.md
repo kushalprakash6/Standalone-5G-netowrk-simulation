@@ -293,7 +293,7 @@ Note: Avoid installing cmake with sudo apt-get install cmake as it may install a
 ```console
   cd ~/UERANSIM
 ```
-![folder of UERANSIM](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/UERANSIM%20folder.jpg)
+![folder of UERANSIM](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/UERANSIM_builtSuccessfully.png)
 
 Note: If the compilation process takes too long, you can speed it up by using make -j instead of make.
 
@@ -308,4 +308,5 @@ After successful compilation, the output binaries will be copied to ~/UERANSIM/b
 
 ![components of UERANSIM](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/components%20in%20UERANSIM.jpg)
 
+![dummy connection](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/UERANSIM_builtSuccessfully.png)
  
