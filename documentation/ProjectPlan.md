@@ -30,7 +30,8 @@
   - Tried setting up Ubuntu 20.x AMD arch in Mac UTM
   - Tried setting up Ubuntu 22.x AMD arch in Mac UTM
   - Tried setting up Ubuntu 22.x ARM arch in Mac UTM
-2. Setting up Ubuntu on baremetal - NAT was harder as not many bare metal ubuntu PCs were available
+  - Tried setting up Ubuntu 22.04.6 in VMware and Oracle VitualBox.
+2. Setting up Ubuntu on baremetal - NAT was harder as not many bare metal ubuntu PCs were available.
 3. Solving issues regarding installations and Ubuntu usage
 4. Added info about 5G core and tools used
 
@@ -42,9 +43,11 @@
 
 1. Installing Open5gs on baremetal Ubuntu
 2. Installing UERANSIM on baremetal Ubuntu
-3. Building Open5gs from sources on ARM architecture
-4. Checking this issue - https://github.com/open5gs/open5gs/discussions/2782#discussioncomment-8070985
-5. Updated documentation about the tools used and the process
+3. Installing Open5gs in Ubuntu 20.04 using Oracle VirtualBox
+4. Installing UERANSIM in Ubuntu 20.04 using Oracle VirtualBox  
+5. Building Open5gs from sources on ARM architecture
+6. Checking this issue - https://github.com/open5gs/open5gs/discussions/2782#discussioncomment-8070985
+7. Updated documentation about the tools used and the process
 
 
 ### Sprint 4
