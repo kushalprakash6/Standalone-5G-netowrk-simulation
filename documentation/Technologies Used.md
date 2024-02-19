@@ -24,7 +24,7 @@ User Equipment (UE) simulator, commonly referred to as ueransim, is an open-sour
 
 ![Successful building of UERANSIM](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/UERANSIM_builtSuccessfully.png)
 
-![Test of UERANSIM](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/UERANSIM_builtSuccessfully.png)
+![Test of UERANSIM](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/dummy%20working%20of%20UERANSIM.png)
 
 ### 4. Wireshark
 Wireshark is a widely-used open-source network protocol analyzer that allows users to capture and inspect the data traveling back and forth on a computer network in real-time. It supports various protocols and provides a detailed view of network traffic, helping users troubleshoot network issues, analyze security threats, and understand the communication between devices. Wireshark's user-friendly interface allows both beginners and experienced network professionals to examine packet-level details, apply filters, and visualize network interactions.

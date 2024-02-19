@@ -308,5 +308,5 @@ After successful compilation, the output binaries will be copied to ~/UERANSIM/b
 
 ![components of UERANSIM](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/components%20in%20UERANSIM.jpg)
 
-![dummy connection](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/UERANSIM_builtSuccessfully.png)
+![dummy connection](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/dummy%20working%20of%20UERANSIM.png)
  
