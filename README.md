@@ -57,6 +57,7 @@
     * [VOiP](#voip)
     * [File Transfer](#file-transfer)
     * [Video Streaming](#video-streaming)
+*   [Technologies Used](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/documentation/Technologies%20Used.md)
 *   [Contribute](#contribute)
 *   [License](#license)
 *   [Sources](#sources)

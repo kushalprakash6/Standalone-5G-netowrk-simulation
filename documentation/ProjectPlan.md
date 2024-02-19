@@ -12,8 +12,9 @@
 
 1. Kushal Prakash - Project planning, project tracking, product owner, developer, reviewer, documentation
 2. Karthik Kothamangala Sreenth - Project planning, developer, System Architect, Documentation.
+3. Madhushree Manjunatha Lakshmidevi - Project planning, Architecture designer, developer, documentation.
    
-## Sprint overview - Kushal
+## Sprint overview - Kushal Prakash
 
 ### Sprint 1
 
@@ -24,7 +25,7 @@
 5. Setup tasks and planning
 
 
-### Sprint 2
+### Sprint 2 - Madhushree Manjunatha Lakshmidevi
 
 1. Setting up Ubuntu in VM 
   - Tried setting up Ubuntu 20.x AMD arch in Mac UTM
