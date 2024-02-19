@@ -27,7 +27,9 @@
 
 ## Contents
 
-*   [What is this?](#what-is-this)
+*   [Installation]
+    *   [Installation on Mac](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/documentation/Install_Ubuntu_on_Mac.md)
+    *   [Installation on Windows]()
 *   [When should I use this?](#when-should-i-use-this)
 *   [Getting started](#getting-started)
     *   [Requirements](#requirements)
@@ -42,6 +44,10 @@
 *   [License](#license)
 *   [Sources](#sources)
 *   [Conclusion](#conclusion)
+
+## Acknowledgement
+
+This project owes its successful completion to the invaluable assistance provided by Professor Dr. Armin Lehmann and Professor Ulrich Trick from Frankfurt University of Applied Sciences. Throughout the project's execution, their guidance and support were instrumental, playing a crucial role in helping us achieve our objectives. We are sincerely grateful to them for serving as our project mentors, imparting the knowledge and direction necessary for the project's successful culmination.
 
 
 ## Abstract
