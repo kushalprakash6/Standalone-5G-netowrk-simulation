@@ -129,7 +129,7 @@ Network Slicing is a pivotal concept in 5G networks, allowing the creation of is
 
 ### Open5gs Network Architecture 
 The architecture of open5gs is structured to adhere to 3GPP (3rd Generation Partnership Project) standard for 5G network.
-![Architecture]()
+![Architecture](resources/images/5G_NetworkArchitecture.png)
 
 ### Data Network (DN)
 The Data Network in a 5G architecture refers to the part of the network responsible for handling data traffic between the User Equipment and external data networks, including the broader internet. The DN encompasses various components, such as the User Plane Function (UPF) and related functions that manage data transmission, packet routing, and forwarding. The UPF, in particular, plays a key role in the efficient and low-latency transport of user data, supporting the high-speed and high-capacity requirements of 5G networks. The DN is integral to providing enhanced data rates, improved connectivity, and efficient handling of diverse data types, contributing to the overall performance and capabilities of 5G networks in delivering advanced communication services and supporting a wide array of applications.
@@ -163,15 +163,15 @@ The Authentication Server Function is a crucial component in the 5G network arch
 
 ## Services
 
-### VOIP
+### VoIP (Voice over Internet Protocol)
 
-VOIP, the acronym for Voice over IP, has revolutionized communication by carrying voice calls over the internet instead of traditional phone lines. This allows for cost-effective communication, seamless integration with other internet services, and exciting features like video calls and instant messaging. But to make it all work seamlessly, you need players like Kamailio and Linphone.
+VoIP, the acronym for Voice over IP, has revolutionized communication by carrying voice calls over the internet instead of traditional phone lines. This allows for cost-effective communication, seamless integration with other internet services, and exciting features like video calls and instant messaging. But to make it all work seamlessly, you need players like Kamailio, Asterisk and Linphone.
 
-Kamailio, an open-source powerhouse, acts as the central server in a VOIP setup. Think of it as the traffic conductor, orchestrating call routing, security, and other essential functions for your VOIP network. It's highly customizable and scalable, making it suitable for anything from small home networks to large-scale corporate setups.
+Asterisk, an open-source powerhouse, acts as the central server in a VoIP setup. Think of it as the traffic conductor, orchestrating call routing, security, and other essential functions for your VOIP network. It's highly customizable and scalable, making it suitable for anything from small home networks to large-scale corporate setups.
 
-Linphone, on the other hand, is your friendly neighborhood client software. Available on various platforms like Windows, macOS, Linux, Android, and iOS, it allows you to make and receive calls, video calls, and instant messages using the services provided by Kamailio. So, while Kamailio handles the behind-the-scenes magic, Linphone is your interface to the world of VOIP communication.
+Asterisk, on the other hand, is your friendly neighborhood client software. Available on various platforms like Windows, macOS, Linux, Android, and iOS, it allows you to make and receive calls, video calls, and instant messages using the services provided by Asterisk. So, while Kamailio handles the behind-the-scenes magic, Linphone is your interface to the world of VoIP communication.
 
-Together, Kamailio and Linphone form a dynamic duo, making VOIP a reality for users. Kamailio ensures everything runs smoothly and securely, while Linphone empowers you to connect and communicate with ease. But their capabilities extend beyond just basic calling. Kamailio can be used for other SIP-based applications like instant messaging and presence services, while Linphone offers various plugins and extensions for further customization and features.
+Together, Asterisk and Twinkle form a dynamic duo, making VOIP a reality for users. Asterisk ensures everything runs smoothly and securely, while Twinkle empowers you to connect and communicate with ease. But their capabilities extend beyond just basic calling. Asterisk can be used for other SIP-based applications like instant messaging and presence services, while Linphone offers various plugins and extensions for further customization and features.
 
 This brief overview hopefully gives you a clearer picture of how VOIP, Kamailio, and Linphone work together to bring the power of internet-based communication to your fingertips. Remember, there's always more to explore, and both Kamailio and Linphone have active communities ready to answer your questions and guide you further on your VOIP journey.
 
@@ -183,6 +183,9 @@ This brief overview hopefully gives you a clearer picture of how VOIP, Kamailio,
 ### Testing
 
 No tests no sucess. You SHOULD have tests for every project, but do new users know how to run them?
+
+## DDOS attack on the network
+By using many UEs to connect with the network at once in loop we can over load the tower to crash it, also given the low system specification, we can achieve it sooner.
 
 ### Logging
 
