@@ -92,3 +92,32 @@ Linux, Open5gs and UERANSIM is a ever growing community, even though if you do n
     ```console
     dpkg --list | grep partial_package_name*
     ```
+
+14. Why can I not have class B IP address for my virtual machines in UTM and ARM arch?
+    > From our trail and analysis, setting class B IP address to VMs in UTM, there was consistent internet and NAT issues. Hence stick with private IP address space.
+
+15. Firefox not launching via nr-binder?
+    > To launch browser for connecting to internet or file transfer, we used firefox in our project and sometimes it can throw error of insuffecient permission, this is also seen when you launch it from root. To fix that you can use the following command.
+    ```console
+    xhost +SI:localuser:your_username
+    ```
+    or, the below one, when you are running from the root
+    ```console
+    xhost si:localuser:root
+    ```
+
+16. Nextcloud does not allow you to login as the domain is untrusted
+    > This can be resolved by going to the following location '/var/www/html/nextcloud/config' and changing the 'config.php' file.
+    ```console
+    $CONFIG = array (
+       'trusted_domains' => 
+       array (
+           0 => 'localhost',
+           1 => 'yourdomain.com',
+           2 => '192.168.1.100',  // Example IP address
+       ),
+    );
+    ```
+
+17. Using kamailio for VoIP?
+    > one of the tools needed for setting up kamailio server is 'ipsec-tools' and this tool is not updated to Ubuntu 22.04 at the time of the project, hence we cannot proceed with successful installation of the server. It threw an error for the same and the server setup failed.
