@@ -121,3 +121,15 @@ Linux, Open5gs and UERANSIM is a ever growing community, even though if you do n
 
 17. Using kamailio for VoIP?
     > one of the tools needed for setting up kamailio server is 'ipsec-tools' and this tool is not updated to Ubuntu 22.04 at the time of the project, hence we cannot proceed with successful installation of the server. It threw an error for the same and the server setup failed.
+
+18. Can I use Zoiper for softphone for arm architecture?
+    > Zoiper is only supported for x86 instruction set, hence it does not work on processors with ARM instruction set at the moment. Other alternative which we got working is Twinkle
+
+19. apt-add repository, ppa:repository/ppa other package installers does not work or remains blank or takes a lot of time to install anything?
+    > This seems to be a DNS routing issue, hence use the following command to disbale ipv6
+    ```console
+    sudo sysctl net.ipv6.conf.all.disable_ipv6=1
+    ```
+
+20. Port for softphone is already in use (port:5060)
+    > If VoIP server and UE are in same VM, then you might see this issue, as VoIP server would be using the same port. I suggest you to run server in a system where UE is not running
