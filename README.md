@@ -129,7 +129,7 @@ Network Slicing is a pivotal concept in 5G networks, allowing the creation of is
 
 ### Open5gs Network Architecture 
 The architecture of open5gs is structured to adhere to 3GPP (3rd Generation Partnership Project) standard for 5G network.
-![Architecture](resources/images/5G_NetworkArchitecture.png)
+![Architecture](documentation/resources/images/5G_NetworkArchitecture.png)
 
 ### Data Network (DN)
 The Data Network in a 5G architecture refers to the part of the network responsible for handling data traffic between the User Equipment and external data networks, including the broader internet. The DN encompasses various components, such as the User Plane Function (UPF) and related functions that manage data transmission, packet routing, and forwarding. The UPF, in particular, plays a key role in the efficient and low-latency transport of user data, supporting the high-speed and high-capacity requirements of 5G networks. The DN is integral to providing enhanced data rates, improved connectivity, and efficient handling of diverse data types, contributing to the overall performance and capabilities of 5G networks in delivering advanced communication services and supporting a wide array of applications.
