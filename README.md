@@ -55,7 +55,9 @@
     * [Authentication Server Function - AUSF](#authentication-server-function-ausf)
 *   [Services](#services)
     * [VOiP](#voip)
+        * [Asterisk and Twinkle](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/documentation/Installing_Asterisk_and_Twinkle.md)
     * [File Transfer](#file-transfer)
+        * [NextCloud](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/documentation/Installing_NextCloud.md)
     * [Video Streaming](#video-streaming)
 *   [Technologies Used](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/documentation/Technologies%20Used.md)
 *   [Contribute](#contribute)
@@ -176,6 +178,14 @@ Together, Asterisk and Twinkle form a dynamic duo, making VOIP a reality for use
 This brief overview hopefully gives you a clearer picture of how VOIP, Kamailio, and Linphone work together to bring the power of internet-based communication to your fingertips. Remember, there's always more to explore, and both Kamailio and Linphone have active communities ready to answer your questions and guide you further on your VOIP journey.
 
 ## File transfer
+
+File transfer is a fundamental aspect of digital communication, allowing users to share files seamlessly between devices. There are various methods for transferring files, including traditional approaches like email attachments, USB drives, and network file sharing protocols like FTP and SFTP. Cloud-based file-sharing systems have become increasingly popular due to their accessibility and convenience, enabling users to transfer data safely and effectively across the internet.
+
+Nextcloud is a leading open-source file-sharing and collaboration platform that provides users with a comprehensive solution for file transfer and storage. With Nextcloud, users can set up their own cloud storage instance, allowing them to upload, organize, and share files securely. Nextcloud emerges as an excellent choice for individuals, teams, and companies seeking a self-hosted and configurable file transfer solution. It offers features such as share links, user accounts, and real-time collaboration on documents.
+
+Nextcloud installation packages are available for various operating systems, and the community provides extensive documentation, simplifying the setup process. Users can install Nextcloud on their preferred cloud, virtual machines, or on-premises servers. Once installed, Nextcloud provides a user-friendly web interface where users can manage their files and collaborate with others, making it a versatile solution for file transfer needs across different environments.
+
+Nextcloud offers users the liberty to tailor their file-sharing configuration to suit their specific needs, whether for enterprise-level collaboration or personal usage. It empowers users to transmit data securely and efficiently, facilitating smooth communication and collaboration workflows in today's digital era. These capabilities are facilitated by Nextcloud's comprehensive features and intuitive user interface.
 
 ## Video streaming
 
