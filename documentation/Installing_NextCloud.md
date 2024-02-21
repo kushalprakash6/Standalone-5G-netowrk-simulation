@@ -98,5 +98,8 @@ Step-11: Open NextCloud via browser
      Create an admin user name and password, remember this as you might need it later to access its core features
      Enter the database details, and the password. These are set during database creation in mysql
      Add users and set permissions as needed
+   ![Next-cloud](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/next-cloud-1.jpg)
 
-
+Step-12: Setting up the NextCloud admin panel
+   ![next-cloud-1](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/next-cloud-1.jpg)
+   ![next-cloud-2](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/next-cloud-2.jpg)
