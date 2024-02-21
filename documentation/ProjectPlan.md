@@ -71,4 +71,54 @@
 5. Implement VoIP using Asterisk and Twinkle
 
 
+## Sprints overview - Madhushree Manjunatha Lakshmidevi
 
+### Sprint 1
+
+1. Setting up GitHub space
+2. Start resource collection
+3. Initiating the documentation process
+4. Gain Insight into 5G, Open5gs, UERANSIM, and Virtualization
+5. Organising tasks and planning
+
+### Sprint 2 
+
+1. Setting up Ubuntu in Oracle Virtual Box
+  - Attempted to configure Ubuntu 20.x 
+  - Attempted to configure Ubuntu 22.x
+  - Attempted to configure Ubuntu 23.x
+  - Setup for all three versions failed, prompting a switch to VMWare Workstation 17
+2. Configuring Ubuntu in VMWare Workstation 17
+  - Attempted to configure Ubuntu 20.x
+3. Resolving issues related to installations and Ubuntu usage.
+4. Added research papers on open5gs network architecture and 5g technology
+
+* Christmas break *
+
+### Sprint 3
+
+* Christmas break *
+
+1. Open5gs installation on Ubuntu via VMware Workstation
+2. UERANSIM installation on Ubuntu via VMware Workstation
+3. Open5gs setup on Ubuntu 20.04 using VMware Workstation
+4. UERANSIM setup on Ubuntu 20.04 using VMware Workstation 
+5. Resolving foundational issues addressed in Sprint 1 and Sprint 2
+6. Documentation update on utilized tools and procedures
+
+### Sprint 4
+
+1. Attempted network slicing by dividing sst, sd, and name, but faced system limitations.
+2. Initated the complete documentation for installation guides on Windows OS.
+3. Commenced documentation on the main readme file.
+
+### Sprint 5
+
+1. Adding the required images for the documentation.
+2. Regularly updating the documentation of further steps.
+3. Frequently updating the readme file with the required links and information.
+
+### Sprint 6
+1. Documentation of FAQs and report
+2. Documenting on NextCloud server
+3. Documenting of VoIP using Asterisk and Twinkle
