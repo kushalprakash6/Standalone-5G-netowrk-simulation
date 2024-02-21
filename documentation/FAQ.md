@@ -133,3 +133,19 @@ Linux, Open5gs and UERANSIM is a ever growing community, even though if you do n
 
 20. Port for softphone is already in use (port:5060)
     > If VoIP server and UE are in same VM, then you might see this issue, as VoIP server would be using the same port. I suggest you to run server in a system where UE is not running
+
+21. WebUI does not open at localhost:3000
+    > In the latest build (v2.7.0) of open5gs WebUI does not open at localhost:3000, you can open it at localhost:9999 (or localhost:7777 in some versions)
+
+22. After setting up next cloud, when we try to open nextcloud page from local PC, apache welcome page opens
+    > Please run the follwing command in terminal
+    ```console
+    a2dissite 000-default.conf
+    ```
+    > The response should be as below
+      Site 000-default disabled.
+      To activate the new configuration, you need to run:
+         systemctl reload apache2
+    ```console
+    systemctl reload apache2
+    ```
