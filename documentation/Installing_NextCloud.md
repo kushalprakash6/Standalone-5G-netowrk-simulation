@@ -60,13 +60,13 @@ Step-8: Create nextcloud config
      touch /etc/apache2/sites-available/nextcloud.conf
   ```
 Step-9: Nextcloud config
-    ```console
+  ```console
      sudo gedit /etc/apache2/sites-available/nextcloud.conf
-     ```
+  ```
      > Enter the below code into the file
        If you have your own domain purchased, you can replace it with your domain name
      
-     ```console
+   ```console
       <VirtualHost *: 80>
       ServerName kushalmcprj.com
       DocumentRoot /var /www/html/nextcloud
@@ -81,10 +81,10 @@ Step-9: Nextcloud config
       </Directory>
      ErrorLog /var/Log/apache2/kushalmcprj.com.error_log
      CustomLog /var/log/apache2/kushalmcprj. com.access_log common </VirtualHost>
-    ```
+   ```
   > Save the file
 Step-10: Run the following commands to run the server hosting
-    ```console
+  ```console
       sudo a2ensite nextcloud.conf
       systemctl reload apache2
       sudo a2enmod rewrite
@@ -92,7 +92,7 @@ Step-10: Run the following commands to run the server hosting
       a2dissite 000-default.conf
       systemctl reload apache2
       apachectl -t        # To check the syntax, if it is error free
-    ```
+  ```
 Step-11: Open NextCloud via browser
    > Open browser and enter the IP address of the VM running the server
      Create an admin user name and password, remember this as you might need it later to access its core features
