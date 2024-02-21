@@ -10,19 +10,19 @@ global:
 upf:
   pfcp:
     server:
-      - address: 192.168.64.40
+      - address: 192.168.64.50
 #    client:
  #    smf:     #  UPF PFCP Client try to associate SMF PFCP Server
   #      - address: 127.0.0.24
   gtpu:
     server:
-      - address: 192.168.64.40
+      - address: 192.168.64.50
   # session:
   #   - subnet: 10.45.0.1/16
    #   dnn: video-streaming
   session:
     - subnet: 10.45.0.1/16
-      dnn: internet
+      dnn: internet2
       dev: ogstun
   metrics:
     server:

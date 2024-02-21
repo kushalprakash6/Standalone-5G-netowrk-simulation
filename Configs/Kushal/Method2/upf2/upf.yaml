@@ -22,7 +22,7 @@ upf:
    #   dnn: video-streaming
   session:
     - subnet: 10.45.0.1/16
-      dnn: internet
+      dnn: voip
       dev: ogstun
   metrics:
     server:

@@ -19,25 +19,25 @@ smf:
         - uri: http://127.0.0.200:7777
   pfcp:
     server:
-      - address: 192.168.64.120
-        dnn: voip
+      - address: 192.168.64.130
+        dnn: internet2
     client:
       upf:
-        - address: 192.168.64.60
-          dnn: voip
+        - address: 192.168.64.50
+          dnn: internet2
   gtpc:
     server:
       - address: 127.0.0.24
   gtpu:
     server:
-      - address: 192.168.64.120
+      - address: 192.168.64.130
   metrics:
     server:
       - address: 127.0.0.24
         port: 9090
   session:
-    - subnet: 10.46.0.1/16
-    - dnn: voip
+    - subnet: 10.47.0.1/16
+    - dnn: internet2
 
   dns:
     - 8.8.8.8
@@ -50,13 +50,13 @@ smf:
 #    - ::1
 #  ctf:
 #    enabled: auto   # auto(default)|yes|no
-  freeDiameter: /root/open5gs/install/etc/freeDiameter/smf2.conf
+  freeDiameter: /root/open5gs/install/etc/freeDiameter/smf3.conf
   info:
     - s_nssai:
         - sst: 1
-          sd: 000002
+          sd: 000003
           dnn:
-            - voip
+            - internet2
       tai:
         - plmn_id:
             mcc: 999
