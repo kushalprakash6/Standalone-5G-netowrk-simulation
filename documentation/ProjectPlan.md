@@ -14,7 +14,7 @@
 2. Karthik Kothamangala Sreenth - Project planning, developer, System Architect, Documentation.
 3. Madhushree Manjunatha Lakshmidevi - Project planning, Architecture designer, developer, documentation.
    
-## Sprint overview - Kushal Prakash
+## Sprints overview - Kushal Prakash
 
 ### Sprint 1
 
@@ -24,8 +24,7 @@
 4. Understand 5G, Open5gs, UERANSIM and virtualization
 5. Setup tasks and planning
 
-
-### Sprint 2 - Madhushree Manjunatha Lakshmidevi
+### Sprint 2 
 
 1. Setting up Ubuntu in VM 
   - Tried setting up Ubuntu 20.x AMD arch in Mac UTM
@@ -50,7 +49,6 @@
 6. Checking this issue - https://github.com/open5gs/open5gs/discussions/2782#discussioncomment-8070985
 7. Updated documentation about the tools used and the process
 
-
 ### Sprint 4
 
 1. Trying network slicing by splitting sst, sd and name
@@ -58,7 +56,6 @@
 3. Trying Oracle VM on Mac for Ubuntu installation
 4. Designing network architecure
 5. Review initial architecture
-
 
 ### Sprint 5
 
@@ -68,7 +65,10 @@
 
 ### Sprint 6
 1. Documentation of FAQs and report
-2. Implementing next cloud and linphone
+2. Implementing NextCloud server
+3. Testing the network
+4. Adding 3rd slice
+5. Implement VoIP using Asterisk and Twinkle
 
 
 
