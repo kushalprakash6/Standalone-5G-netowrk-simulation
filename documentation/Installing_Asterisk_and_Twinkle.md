@@ -27,6 +27,7 @@ Step-4: Start Asterisk
   ```console
       sip show peers 
   ```
+  ![asterisk-sip-setup](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/asterisk-sip-setup.jpg)
 
 Step-5: Install Twinkle softphone
   ```console
