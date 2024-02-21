@@ -212,6 +212,7 @@ Please make sure to update tests as appropriate.
 6. 	https://open5gs.org/open5gs/docs/guide/02-building-open5gs-from-sources/
 7. 	https://github.com/aligungr/UERANSIM/wiki/Installation
 8. 	https://free5gc.org/guide/2-config-vm-en/
+9. 	https://docs.nextcloud.com/server/latest/admin_manual/installation/example_ubuntu.html
 
 [react-markdown][react-markdown] - Project which served as an inspiration for this README
 
