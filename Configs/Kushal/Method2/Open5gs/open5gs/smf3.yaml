@@ -1,5 +1,5 @@
 logger:
-  file: /root/open5gs/install/var/log/open5gs/smf2.log
+  file: /root/open5gs/install/var/log/open5gs/smf3.log
 #  level: info   # fatal|error|warn|info(default)|debug|trace
 
 global:
@@ -10,7 +10,7 @@ global:
 smf:
   sbi:
     server:
-      - address: 127.0.0.24
+      - address: 127.0.0.124
         port: 7777
     client:
 #      nrf:
@@ -27,13 +27,13 @@ smf:
           dnn: internet2
   gtpc:
     server:
-      - address: 127.0.0.24
+      - address: 127.0.0.124
   gtpu:
     server:
       - address: 192.168.64.130
   metrics:
     server:
-      - address: 127.0.0.24
+      - address: 127.0.0.124
         port: 9090
   session:
     - subnet: 10.47.0.1/16

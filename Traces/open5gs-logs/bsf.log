@@ -1,0 +1,21 @@
+Open5GS daemon v2.7.0-84-g94bd68a
+
+02/22 11:49:14.997: [app] INFO: Configuration: '/root/open5gs/install/etc/open5gs/bsf.yaml' (../lib/app/ogs-init.c:130)
+02/22 11:49:14.997: [app] INFO: File Logging: '/root/open5gs/install/var/log/open5gs/bsf.log' (../lib/app/ogs-init.c:133)
+02/22 11:49:15.016: [sbi] INFO: NF Service [nbsf-management] (../lib/sbi/context.c:1812)
+02/22 11:49:15.055: [sbi] INFO: nghttp2_server() [http://127.0.0.15]:7777 (../lib/sbi/nghttp2-server.c:414)
+02/22 11:49:15.068: [app] INFO: BSF initialize...done (../src/bsf/app.c:31)
+02/22 11:49:15.083: [sbi] INFO: [670b88c0-d178-41ee-b9bf-3125c9ea2ed6] NF registered [Heartbeat:10s] (../lib/sbi/nf-sm.c:221)
+02/22 11:49:15.118: [sbi] INFO: [6719cc00-d178-41ee-9082-7191f3c54296] Subscription created until 2024-02-23T11:49:15.108867+00:00 [duration:86400,validity:86399.990325,patch:43199.995162] (../lib/sbi/nnrf-handler.c:710)
+Open5GS daemon v2.7.0-84-g94bd68a
+
+02/22 15:05:20.843: [app] INFO: Configuration: '/root/open5gs/install/etc/open5gs/bsf.yaml' (../lib/app/ogs-init.c:130)
+02/22 15:05:20.843: [app] INFO: File Logging: '/root/open5gs/install/var/log/open5gs/bsf.log' (../lib/app/ogs-init.c:133)
+02/22 15:05:20.879: [sbi] INFO: NF Service [nbsf-management] (../lib/sbi/context.c:1812)
+02/22 15:05:20.895: [sbi] INFO: nghttp2_server() [http://127.0.0.15]:7777 (../lib/sbi/nghttp2-server.c:414)
+02/22 15:05:20.897: [app] INFO: BSF initialize...done (../src/bsf/app.c:31)
+02/22 15:05:20.911: [sbi] WARNING: [7] Failed to connect to 127.0.0.200 port 7777 after 5 ms: Connection refused (../lib/sbi/client.c:698)
+02/22 15:05:20.911: [sbi] WARNING: ogs_sbi_client_handler() failed [-1] (../lib/sbi/path.c:62)
+02/22 15:05:31.891: [sbi] WARNING: [cc0bf7d0-d193-41ee-91f5-35f581fdcaf8] Retry registration with NRF (../lib/sbi/nf-sm.c:182)
+02/22 15:05:31.893: [sbi] INFO: [cc0bf7d0-d193-41ee-91f5-35f581fdcaf8] NF registered [Heartbeat:10s] (../lib/sbi/nf-sm.c:221)
+02/22 15:05:31.896: [sbi] INFO: [d29cacc0-d193-41ee-a0bb-6d9a34371c3e] Subscription created until 2024-02-23T15:05:31.894503+00:00 [duration:86400,validity:86399.998282,patch:43199.999141] (../lib/sbi/nnrf-handler.c:710)
