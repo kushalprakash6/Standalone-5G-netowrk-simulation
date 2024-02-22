@@ -20,6 +20,8 @@
 - [Verify Installation](#verify-installation)
 
 
+## Installation of Open5gs
+
 ## Introduction
 
 This guide gives complete steps to install Open5gs on Ubuntu. 
@@ -245,8 +247,19 @@ In this file, we do not focus on building from sources, but on standard installa
     
     * Add images*
 
+### 9. Adding network tunnels in UPFs
 
-## Installation guide on UERANSIM
+  ```console
+    cd ~
+    sudo sysctl -w net.ipv4.ip_forward=1
+    sudo ip tuntap add name ogstun2 mode tun
+    sudo ip addr add 10.46.0.1/16 dev ogstun2
+    sudo ip link set ogstun2 up
+    sudo iptables -t nat -A POSTROUTING -s 10.46.0.0/16 ! -o ogstun2 -j MASQUERADE
+  ```
+
+
+# Installation guide on UERANSIM
 
 ## Getting the UERANSIM
 Before proceeding, ensure that you have the most recent version of UERANSIM and clone the repository.
