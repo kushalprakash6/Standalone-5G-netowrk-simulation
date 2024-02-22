@@ -223,6 +223,9 @@ Please make sure to update tests as appropriate.
 7. 	https://github.com/aligungr/UERANSIM/wiki/Installation
 8. 	https://free5gc.org/guide/2-config-vm-en/
 9. 	https://docs.nextcloud.com/server/latest/admin_manual/installation/example_ubuntu.html
+10. https://github.com/s5uishida/open5gs_5gc_ueransim_sample_config
+11. https://github.com/s5uishida/open5gs_5gc_ueransim_nearby_upf_sample_config
+12. https://open5gs.org/open5gs/docs/tutorial/04-metrics-prometheus/
 
 [react-markdown][react-markdown] - Project which served as an inspiration for this README
 
