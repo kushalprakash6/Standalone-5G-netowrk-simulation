@@ -189,10 +189,11 @@ Nextcloud offers users the liberty to tailor their file-sharing configuration to
 
 ## Video streaming
 
+To establish the video streaming service, Owncast is installed in the lxc. Next, Firefox browser is also installed in the lxc to configure the admin in owncast server. To verify the installation by visiting the default page on our server IP at port 8080: http://192.168.64.60:8080. To configure Owncast, we logged in to the /admin backend dashboard via port 8080. http://192.168.64.60:8080/admin. Connect Open Broadcaster Software (OBS) studio installed on User Equipment to Owncast Server. OBS-Studio is an open-source software you need for recording and Streaming (live broadcast) your audio-visual content be able. For this we have installed Open Broadcaster Software (OBS) in lxc ‘ue1’ where the UE for slice with SST 1, SD 1 is available which will be broadcasting a video on a TUN interface after PDU session established via 5G Core. OBS studio can be installed on a broadcasting user equipment using the commands below. OBS has been installed and the UE can start streaming using the uesimtun0 interface using the nr-binder tool of UERANSIM.
 
 ### Testing
 
-No tests no sucess. You SHOULD have tests for every project, but do new users know how to run them?
+Below are some of the tests we performed both to test the feature and to see the failure points.
 
 ## DDOS attack on the network
 By using many UEs to connect with the network at once in loop we can over load the tower to crash it, also given the low system specification, we can achieve it sooner.
