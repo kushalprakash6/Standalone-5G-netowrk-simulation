@@ -11,7 +11,7 @@
 ## Roles
 
 1. Kushal Prakash - Project planning, project tracking, product owner, developer, reviewer, documentation
-2. Karthik Kothamangala Sreenath - Project planning, developer, System Architect, Documentation.
+2. Karthik Kothamangala Sreenath - Project planning, Developer, System Architect, Documentation.
 3. Madhushree Manjunatha Lakshmidevi - Project planning, Architecture designer, developer, documentation.
 4. Padmini Manjunatha - Project Planning, System Architect, Developer, Documentation.
    
@@ -176,6 +176,64 @@
 ### Sprint 6
 1. 
 
+
+## Sprints overview - Karthik Kothamangala Sreenath
+
+### Sprint 1
+
+1. Setting up GitHub space
+2. Initiating the collection of resources
+3. Beginning the documentation process
+4. Gaining knowledge about 5G, Open5gs, UERANSIM, Virtualization techniques and Slicing
+5. Organizing tasks and creating a project plan
+
+### Sprint 2 
+
+1. Setting up Ubuntu in VM 
+  - Tried setting up Ubuntu 23.x in oracle Virtual Box
+  - Tried setting up Ubuntu 22.x in oracle Virtual Box
+  - Tried setting up Ubuntu 20.x in oracle Virtual Box
+  - Tried setting up Ubuntu 22.04.6 in VMware.
+2. Solving issues regarding installations and Ubuntu usage
+3. Added research papers on open5gs and LAN 
+
+* Christmas break *
+
+### Sprint 3
+
+* Christmas break *
+
+1. Checking this issue - https://github.com/aligungr/UERANSIM/issues/310
+2. Installing Open5gs on 20.04 Ubuntu using Oracle VirtualBox
+3. Installing UERANSIM on 20.04 Ubuntu using Oracle VirtualBox
+4. Installing Open5gs in Ubuntu 20.04 using VMWare
+5. Installing UERANSIM in Ubuntu 20.04 using VMWare
+6. Building Open5gs from sources on ARM architecture
+
+
+### Sprint 4
+
+1. Building connection between Open5gs and UERANSIM
+2. Adding subscriber information in open5gs
+3. Creation of UE, GNB and tried to connect each other
+4. Solved PLMN registration failed issue
+5. Established PDU session
+6. Fetching IP address for uesimtun0 interface
+7. Reviewing initial Architecture
+
+### Sprint 5
+
+1. Slicing network by splitting UPF plane from the control plane
+2. Completed first slicing by establishing internet connection from UE 
+3. Resolve configuration issues for a second slicing dedicated to Voice over Internet Protocol (VoIP) service.
+
+### Sprint 6
+
+1. Updated all the configuration files and related images.
+2. Preparation of slides for the presentation.
+
+    
+ 
 
 
 
