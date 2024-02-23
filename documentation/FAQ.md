@@ -94,7 +94,7 @@ Linux, Open5gs and UERANSIM is a ever growing community, even though if you do n
     ```
 
 14. Why can I not have class B IP address for my virtual machines in UTM and ARM arch?
-    > From our trail and analysis, setting class B IP address to VMs in UTM, there was consistent internet and NAT issues. Hence stick with private IP address space.
+    > From our trail and analysis, setting class B IP address to VMs in UTM, there was consistent internet and NAT issues. Hence stick with private IP address space for proper working of Open5gs and DN connections.
 
 15. Firefox not launching via nr-binder?
     > To launch browser for connecting to internet or file transfer, we used firefox in our project and sometimes it can throw error of insuffecient permission, this is also seen when you launch it from root. To fix that you can use the following command.
