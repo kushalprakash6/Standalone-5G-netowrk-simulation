@@ -123,3 +123,35 @@
 1. Documentation of FAQs and report
 2. Documenting on NextCloud server
 3. Documenting of VoIP using Asterisk and Twinkle
+
+## Sprints overview - Padmini Manjunatha
+
+### Sprint 1
+
+1. Setting up GitHub space
+2.Initiating the collection of resources
+3.Beginning the documentation process
+4.Gaining knowledge about 5G, Open5gs, UERANSIM, and virtualization techniques
+5.Organizing tasks and creating a project plang
+
+### Sprint 2 
+
+1. Setting up Ubuntu in VM 
+  - Tried setting up Ubuntu 23.x in oracle Virtual Box
+  - Tried setting up Ubuntu 22.x in oracle Virtual Box
+  - Tried setting up Ubuntu 20.x in oracle Virtual Box
+  - Tried setting up Ubuntu 22.04.6 in VMware.
+2. Solving issues regarding installations and Ubuntu usage
+3. Added research papers on open5gs network architecture and 5g technology
+
+* Christmas break *
+
+### Sprint 3
+
+* Christmas break *
+
+
+
+
+
+
