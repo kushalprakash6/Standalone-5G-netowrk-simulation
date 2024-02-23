@@ -129,10 +129,10 @@
 ### Sprint 1
 
 1. Setting up GitHub space
-2.Initiating the collection of resources
-3.Beginning the documentation process
-4.Gaining knowledge about 5G, Open5gs, UERANSIM, and virtualization techniques
-5.Organizing tasks and creating a project plang
+2. Initiating the collection of resources
+3. Beginning the documentation process
+4. Gaining knowledge about 5G, Open5gs, UERANSIM, and virtualization techniques
+5. Organizing tasks and creating a project plang
 
 ### Sprint 2 
 
@@ -167,6 +167,14 @@
 6. Fetching IP address for uesimtun0 interface
 7. Reviewing initial Architecture
 
+### Sprint 5
+
+1. Completed first slicing by establishig internet connection from UE 
+2. Tried installing Kamailio server on Ubuntu 20.04
+3. Updating Documentation.
+
+### Sprint 6
+1. 
 
 
 
