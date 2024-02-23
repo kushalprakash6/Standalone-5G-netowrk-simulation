@@ -169,14 +169,16 @@
 
 ### Sprint 5
 
-1. Completed first slicing by establishig internet connection from UE 
+1. Slicing network by splitting UPF plane from the control plane
 2. Tried installing Kamailio server on Ubuntu 20.04
-3. Updating Documentation.
+3. Checking of Kamailio server compatability to Ubuntu 20xx and 22xx
+4. Updating Documentation.
 
 ### Sprint 6
-1. 
+1.  Preparation of slides for the presentation.
+2.  Updating the Md files.
 
-
+   
 ## Sprints overview - Karthik Kothamangala Sreenath
 
 ### Sprint 1
