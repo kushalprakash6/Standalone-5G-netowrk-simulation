@@ -11,8 +11,9 @@
 ## Roles
 
 1. Kushal Prakash - Project planning, project tracking, product owner, developer, reviewer, documentation
-2. Karthik Kothamangala Sreenth - Project planning, developer, System Architect, Documentation.
+2. Karthik Kothamangala Sreenath - Project planning, developer, System Architect, Documentation.
 3. Madhushree Manjunatha Lakshmidevi - Project planning, Architecture designer, developer, documentation.
+4. Padmini Manjunatha - Project Planning, System Architect, Developer, Documentation.
    
 ## Sprints overview - Kushal Prakash
 
