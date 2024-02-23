@@ -150,6 +150,24 @@
 
 * Christmas break *
 
+1. Installing Open5gs on 20.04 Ubuntu using Oracle VirtualBox
+2. Installing UERANSIM on 20.04 Ubuntu using Oracle VirtualBox
+3. Installing Open5gs in Ubuntu 20.04 using VMWare
+4. Installing UERANSIM in Ubuntu 20.04 using VMWare
+5. Building Open5gs from sources on ARM architecture
+6. Checking this issue - https://github.com/aligungr/UERANSIM/issues/310
+
+### Sprint 4
+
+1. Building connection between Open5gs and UERANSIM
+2. Adding subscriber information in open5gs
+3. Creation of UE, GNB and tried to connect each other
+4. Solved PLMN registration failed issue
+5. Established PDU session
+6. Fetching IP address for uesimtun0 interface
+7. Reviewing initial Architecture
+
+
 
 
 
