@@ -129,10 +129,10 @@
 ### Sprint 1
 
 1. Setting up GitHub space
-2.Initiating the collection of resources
-3.Beginning the documentation process
-4.Gaining knowledge about 5G, Open5gs, UERANSIM, and virtualization techniques
-5.Organizing tasks and creating a project plang
+2. Initiating the collection of resources
+3. Beginning the documentation process
+4. Gaining knowledge about 5G, Open5gs, UERANSIM, and virtualization techniques
+5. Organizing tasks and creating a project plang
 
 ### Sprint 2 
 
