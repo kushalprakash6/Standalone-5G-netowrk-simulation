@@ -132,7 +132,7 @@
 2. Initiating the collection of resources
 3. Beginning the documentation process
 4. Gaining knowledge about 5G, Open5gs, UERANSIM, and virtualization techniques
-5. Organizing tasks and creating a project plang
+5. Organizing tasks and creating a project plan
 
 ### Sprint 2 
 
@@ -140,7 +140,7 @@
   - Tried setting up Ubuntu 23.x in oracle Virtual Box
   - Tried setting up Ubuntu 22.x in oracle Virtual Box
   - Tried setting up Ubuntu 20.x in oracle Virtual Box
-  - Tried setting up Ubuntu 22.04.6 in VMware.
+  - Tried setting up Ubuntu 22.04.6 in VMware
 2. Solving issues regarding installations and Ubuntu usage
 3. Added research papers on open5gs network architecture and 5g technology
 
@@ -172,11 +172,11 @@
 1. Slicing network by splitting UPF plane from the control plane
 2. Tried installing Kamailio server on Ubuntu 20.04
 3. Checking of Kamailio server compatability to Ubuntu 20xx and 22xx
-4. Updating Documentation.
+4. Updating Documentation
 
 ### Sprint 6
-1.  Preparation of slides for the presentation.
-2.  Updating the Md files.
+1.  Preparation of slides for the presentation
+2.  Updating the Md files
 
    
 ## Sprints overview - Karthik Kothamangala Sreenath
