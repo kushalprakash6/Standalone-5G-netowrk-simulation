@@ -1,0 +1,15 @@
+# /etc/netplan/01-netcfg.yaml
+
+network:
+  version: 2
+  renderer: networkd
+  bridges:
+    mybridge:
+      interfaces: [enp0s1]
+      dhcp4: no
+      addresses: [192.168.64.30/24, 192.168.64.110/24, 192.168.64.120/24, 192.168.64.130/24]
+      routes:
+        - to: 0.0.0.0/0
+          via: 192.168.64.1
+      nameservers:
+        addresses: [8.8.8.8, 8.8.4.4]

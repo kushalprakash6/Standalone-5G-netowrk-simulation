@@ -1,0 +1,71 @@
+kushal_ue@kushalueransim:~/UERANSIM$ sudo ./build/nr-ue -c config/ue_SliceNotSupported.yaml 
+UERANSIM v3.2.6
+[2024-02-23 18:30:10.909] [nas] [info] UE switches to state [MM-DEREGISTERED/PLMN-SEARCH]
+[2024-02-23 18:30:10.910] [rrc] [debug] New signal detected for cell[1], total [1] cells in coverage
+[2024-02-23 18:30:10.910] [nas] [info] Selected plmn[999/70]
+[2024-02-23 18:30:10.910] [rrc] [info] Selected cell plmn[999/70] tac[1] category[SUITABLE]
+[2024-02-23 18:30:10.910] [nas] [info] UE switches to state [MM-DEREGISTERED/PS]
+[2024-02-23 18:30:10.910] [nas] [info] UE switches to state [MM-DEREGISTERED/NORMAL-SERVICE]
+[2024-02-23 18:30:10.910] [nas] [debug] Initial registration required due to [MM-DEREG-NORMAL-SERVICE]
+[2024-02-23 18:30:10.910] [nas] [debug] UAC access attempt is allowed for identity[0], category[MO_sig]
+[2024-02-23 18:30:10.911] [nas] [debug] Sending Initial Registration
+[2024-02-23 18:30:10.911] [nas] [info] UE switches to state [MM-REGISTER-INITIATED]
+[2024-02-23 18:30:10.911] [rrc] [debug] Sending RRC Setup Request
+[2024-02-23 18:30:10.915] [rrc] [info] RRC connection established
+[2024-02-23 18:30:10.915] [rrc] [info] UE switches to state [RRC-CONNECTED]
+[2024-02-23 18:30:10.915] [nas] [info] UE switches to state [CM-CONNECTED]
+[2024-02-23 18:30:10.933] [nas] [debug] Authentication Request received
+[2024-02-23 18:30:10.934] [nas] [debug] Received SQN [000000000000]
+[2024-02-23 18:30:10.934] [nas] [debug] SQN-MS [000000000000]
+[2024-02-23 18:30:10.934] [nas] [debug] Sending Authentication Failure due to SQN out of range
+[2024-02-23 18:30:10.939] [nas] [debug] Authentication Request received
+[2024-02-23 18:30:10.939] [nas] [debug] Received SQN [000000000021]
+[2024-02-23 18:30:10.939] [nas] [debug] SQN-MS [000000000000]
+[2024-02-23 18:30:10.944] [nas] [debug] Security Mode Command received
+[2024-02-23 18:30:10.944] [nas] [debug] Selected integrity[2] ciphering[0]
+[2024-02-23 18:30:10.948] [nas] [error] Initial Registration failed [?]
+[2024-02-23 18:30:10.948] [nas] [debug] Handling Registration Reject abnormal case
+[2024-02-23 18:30:10.948] [nas] [info] UE switches to state [MM-DEREGISTERED/ATTEMPTING-REGISTRATION]
+[2024-02-23 18:30:10.949] [rrc] [debug] RRC Release received
+[2024-02-23 18:30:10.949] [nas] [info] UE switches to state [CM-IDLE]
+[2024-02-23 18:30:21.934] [nas] [debug] NAS timer[3511] expired [1]
+[2024-02-23 18:30:21.934] [nas] [debug] Initial registration required due to [T3511-EXPIRY-IN-ATT-REG]
+[2024-02-23 18:30:21.935] [nas] [debug] UAC access attempt is allowed for identity[0], category[MO_sig]
+[2024-02-23 18:30:21.935] [nas] [debug] Sending Initial Registration
+[2024-02-23 18:30:21.935] [nas] [debug] Deleting NAS security context
+[2024-02-23 18:30:21.935] [nas] [info] UE switches to state [MM-REGISTER-INITIATED]
+[2024-02-23 18:30:21.935] [rrc] [debug] Sending RRC Setup Request
+[2024-02-23 18:30:21.935] [rrc] [info] RRC connection established
+[2024-02-23 18:30:21.936] [rrc] [info] UE switches to state [RRC-CONNECTED]
+[2024-02-23 18:30:21.936] [nas] [info] UE switches to state [CM-CONNECTED]
+[2024-02-23 18:30:21.952] [nas] [debug] Authentication Request received
+[2024-02-23 18:30:21.952] [nas] [debug] Received SQN [000000000061]
+[2024-02-23 18:30:21.952] [nas] [debug] SQN-MS [000000000021]
+[2024-02-23 18:30:21.958] [nas] [debug] Security Mode Command received
+[2024-02-23 18:30:21.958] [nas] [debug] Selected integrity[2] ciphering[0]
+[2024-02-23 18:30:21.963] [nas] [error] Initial Registration failed [?]
+[2024-02-23 18:30:21.963] [nas] [debug] Handling Registration Reject abnormal case
+[2024-02-23 18:30:21.963] [nas] [info] UE switches to state [MM-DEREGISTERED/ATTEMPTING-REGISTRATION]
+[2024-02-23 18:30:21.963] [rrc] [debug] RRC Release received
+[2024-02-23 18:30:21.963] [nas] [info] UE switches to state [CM-IDLE]
+[2024-02-23 18:30:32.948] [nas] [debug] NAS timer[3511] expired [1]
+[2024-02-23 18:30:32.948] [nas] [debug] Initial registration required due to [T3511-EXPIRY-IN-ATT-REG]
+[2024-02-23 18:30:32.948] [nas] [debug] UAC access attempt is allowed for identity[0], category[MO_sig]
+[2024-02-23 18:30:32.948] [nas] [debug] Sending Initial Registration
+[2024-02-23 18:30:32.948] [nas] [debug] Deleting NAS security context
+[2024-02-23 18:30:32.948] [nas] [info] UE switches to state [MM-REGISTER-INITIATED]
+[2024-02-23 18:30:32.948] [rrc] [debug] Sending RRC Setup Request
+[2024-02-23 18:30:32.949] [rrc] [info] RRC connection established
+[2024-02-23 18:30:32.949] [rrc] [info] UE switches to state [RRC-CONNECTED]
+[2024-02-23 18:30:32.949] [nas] [info] UE switches to state [CM-CONNECTED]
+[2024-02-23 18:30:32.957] [nas] [debug] Authentication Request received
+[2024-02-23 18:30:32.957] [nas] [debug] Received SQN [000000000081]
+[2024-02-23 18:30:32.957] [nas] [debug] SQN-MS [000000000061]
+[2024-02-23 18:30:32.961] [nas] [debug] Security Mode Command received
+[2024-02-23 18:30:32.961] [nas] [debug] Selected integrity[2] ciphering[0]
+[2024-02-23 18:30:32.964] [rrc] [debug] RRC Release received
+[2024-02-23 18:30:32.964] [nas] [error] Initial Registration failed [?]
+[2024-02-23 18:30:32.964] [nas] [debug] Handling Registration Reject abnormal case
+[2024-02-23 18:30:32.964] [nas] [info] UE switches to state [MM-DEREGISTERED/ATTEMPTING-REGISTRATION]
+[2024-02-23 18:30:32.964] [nas] [info] UE switches to state [CM-IDLE]
+

@@ -1,0 +1,69 @@
+logger:
+  file: /root/open5gs/install/var/log/open5gs/smf1.log
+#  level: info   # fatal|error|warn|info(default)|debug|trace
+
+global:
+  max:
+    ue: 1024  # The number of UE can be increased depending on memory size.
+#    peer: 64
+
+smf:
+  sbi:
+    server:
+      - address: 127.0.0.4
+        port: 7777
+    client:
+#      nrf:
+#        - uri: http://127.0.0.10:7777
+      scp:
+        - uri: http://127.0.0.200:7777
+  pfcp:
+    server:
+      - address: 192.168.64.110
+        dnn: internet
+    client:
+      upf:
+        - address: 192.168.64.40
+          dnn: internet
+  gtpc:
+    server:
+      - address: 127.0.0.4
+  gtpu:
+    server:
+      - address: 192.168.64.110
+  metrics:
+    server:
+      - address: 127.0.0.4
+        port: 9090
+  session:
+    - subnet: 128.45.0.1/16
+    - dnn: internet
+
+  dns:
+    - 8.8.8.8
+    - 8.8.4.4
+    - 2001:4860:4860::8888
+    - 2001:4860:4860::8844
+  mtu: 1400
+#  p-cscf:
+#    - 127.0.0.1
+#    - ::1
+#  ctf:
+#    enabled: auto   # auto(default)|yes|no
+  freeDiameter: /root/open5gs/install/etc/freeDiameter/smf1.conf
+  info:
+    - s_nssai:
+        - sst: 1
+          sd: 000001
+          dnn:
+            - internet
+      tai:
+        - plmn_id:
+            mcc: 999
+            mnc: 70
+          tac: 1
+ # pfcp:
+ #   client:
+ #     upf:
+ #       - address: 192.168.64.4
+ #         dnn: internet
