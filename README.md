@@ -205,7 +205,7 @@ Voice over IP (VoIP) revolutionizes communication by enabling voice calls over t
 
 To utilize VoIP service, a call server is established with the Asterisk package. Asterisk serves as the "Call Server" and utilizes the MariaDB database server for authentication, a provision available within Asterisk. The protocol employed for VoIP communication is SIP (Session Initiation Protocol). User registration is facilitated through the 'Twinkle' application. Each host (UE) configured with slice SST2, SD1, and SST2, SD2 for VoIP services is equipped with the Twinkle package. The users created in the database are then registered on each host using Twinkle to enable call placement after establishing the PDU Session via the uesimtun0 interface using the nr-binder tool of UERANSIM.
 
-Installation of Asterisk and Twinkle: 
+Installation of Asterisk and Twinkle: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/UserGuide/Installing_Asterisk_and_Twinkle.md)
 
 ```
 ```
@@ -222,7 +222,7 @@ File transfer is crucial in digital communication, allowing seamless sharing of 
 ### Nextcloud: Secure File Sharing and Collaboration Platform
 Nextcloud has been installed on the system to facilitate seamless file sharing among users. Additionally, the Firefox browser has been installed within the LXC environment to configure both the admin and user profiles within the Nextcloud server. To access the Nextcloud server admin interface, users can navigate to the following URL: , where the IP address 10.167.53.194 corresponds to the LXC named 'nextcloud' housing the Nextcloud server installation. Upon registration as an admin in Nextcloud, two user profiles are created to enable access to file sharing services for the two User Equipments, each assigned to slices SST1, SD1 and SST1, SD2 respectively.
 
-Installation and setup of NextCloud: 
+Installation and setup of NextCloud: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/UserGuide/Installing_NextCloud.md)
 
 ```
 ```
