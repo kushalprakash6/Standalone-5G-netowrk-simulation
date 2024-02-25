@@ -27,40 +27,49 @@
 
 ## Contents
 
+# Contents
+
 1. [Acknowledgement](#acknowledgement)
 2. [Abstract](#abstract)
 3. [Introduction](#introduction)
-4. [Scope of the Project](#scope-of-the-project)
-5. [Definitions and Abbreviations](#definition-and-abbreviations)
-6. [Overview on 5G](#overview-on-5g)
-7. [UERANSIM](#ueransim)
-8. [User Equipments (UEs)](#user-equipements-ues)
-9. [gNBs](#gnbs)
-10. [Network Functions (NFs)](#network-functions-nfs)
-11. [Network Slicing](#network-slicing)
-12. [Data Network (DN)](#data-network-dn)
-13. [Design and Implementation](#design-and-implementation)
-14. [Open5gs Network Architecture](#open5gs-network-architecture)
-15. [Implementation](#implementation)
+4. [Scope of the project](#scope-of-the-project)
+5. [Definition and Abbreviations](#definition-and-abbreviations)
+6. [Project structure in GitHub](#project-structure-in-github)
+7. [Overview on 5G and Open5gs](#overview-on-5g-and-open5gs)
+8. [UERANSIM](#ueransim)
+9. [User Equipments (UEs)](#user-equipments-ues)
+10. [gNBs](#gnbs)
+11. [Network Functions (NFs)](#network-functions-nfs)
+12. [Network Slicing](#network-slicing)
+13. [Data Network (DN)](#data-network-dn)
+14. [VoIP (Voice over Internet Protocol) using Asterisk](#voip-voice-over-internet-protocol-using-asterisk)
+15. [File sharing using Nextcloud: Secure File Sharing and Collaboration Platform](#file-sharing-using-nextcloud-secure-file-sharing-and-collaboration-platform)
+16. [Video streaming using Owncast](#video-streaming-using-owncast)
+17. [Design and Implementation](#design-and-implementation)
+    - [Linux Based Virtual Machine](#linux-based-virtual-machine)
+18. [Open5gs Network Architecture](#open5gs-network-architecture)
+19. [Implementation](#implementation)
     - [Installations](#installations)
-    - [Configuration File Setup and Status Checking](#configuration-file-setup-and-status-checking)
+    - [Configuration of File Setup and Status Checking](#configuration-of-file-setup-and-status-checking)
     - [Register UE Device](#register-ue-device)
-    - [Establishment of User Planes](#establishment-of-user-planes-for-sst1-and-sd1-sd2-and-sd3)
-    - [UERANSIM Configuration](#ueransim-configuration-gnodeb-and-ues)
-16. [Services](#services)
-    - [VoIP (Voice over Internet Protocol)](#video-streaming)
-    - [File Transfer](#file-transfer)
-    - [Video Streaming](#video-streaming)
-17. [Running the 5G Network](#running-the-5g-network)
-18. [Network Slicing](#network-slicing)
-19. [Commands Used](#commands-that-are-used)
-20. [DDOS Attack on the Network](#ddos-attack-on-the-network)
-21. [Logging](#logging)
-22. [Testing](#testing)
-23. [Contribution](#contribute)
-24. [License](#license)
-25. [Sources](#sources)
-26. [Conclusion](#conclusion)
+    - [Establishment of User Planes for SST1 with SD1, SD2 and SD3](#establishment-of-user-planes-for-sst1-with-sd1-sd2-and-sd3)
+20. [UERANSIM Configuration: gNodeB and UEs](#ueransim-configuration-gnodeb-and-ues)
+21. [Connecting to internet](#connecting-to-internet)
+22. [Asterisk and Twinkle Configuration for running VoIP service](#asterisk-and-twinkle-configuration-for-running-voip-service)
+23. [Next Cloud for file transfer](#next-cloud-for-file-transfer)
+24. [Video streaming with Owncast](#video-streaming-with-owncast)
+25. [Running the 5G Network](#running-the-5g-network)
+    - [Run Open5gs and Open5gs U-Plane1 (UPF1), U-Plane2 (UPF2) & U-Plane3 (UPF3)](#run-open5gs-and-open5gs-u-plane1-upf1-u-plane2-upf2--u-plane3-upf3)
+26. [Logging](#logging)
+    - [Setup tunneling in UPF](#setup-tunneling-in-upf)
+27. [Testing](#testing)
+    - [ismi not registered](#ismi-not-registered)
+    - [Slice not supported](#slice-not-supported)
+    - [DDoS attack](#ddos-attack)
+    - [Other tests](#other-tests)
+28. [License](#license)
+29. [Sources](#sources)
+
 
 
 ## Acknowledgement
@@ -82,35 +91,45 @@ The aim of this project is to construct a 5G-SA (Stand-alone) system utilizing O
 
 ## Definition and Abbreviations
 
-VM                            Virtual Machine
-5G SA                         5G Stand Alone
-AMF                           Access and Mobility Management Function
-5QI                           5G QoS Identifier
-NRF                           Network Repository Function
-UE                            User Equipment
-NSSF                          Network Slice Selection Function
-PDU                           Protocol Data Unit
-NGAP                          Next Generation Application Protocol
-SMF                           Session Management Function
-SD                            Slice Differentiator
-SST                           Slice/Service Type
-SDN                           Software Defined Network
-UPF                           User Plane Function
-RAN                           Radio Access Network
-PCF                           Policy Control Function
-VOIP                          Voice Over Internet Protocol
-SST                           Service Set Type 
-SD                            Service Domains
-SIP                           Session Initiation Protocol
-UDM	                          Unified Data Management
-AUSF	                      Authentication Server Function
-UDR	                          Unified Data Repository
+| Short form | Full form |
+| --- | --- | 
+|VM |                            Virtual Machine |
+|5G SA |                         5G Stand Alone |
+|AMF |                           Access and Mobility Management Function |
+|5QI |                           5G QoS Identifier |
+|NRF |                           Network Repository Function |
+|UE |                            User Equipment |
+|NSSF |                          Network Slice Selection Function |
+|PDU |                           Protocol Data Unit |
+|NGAP |                          Next Generation Application Protocol |
+|SMF |                           Session Management Function |
+|SD |                            Slice Differentiator |
+|SST |                           Slice/Service Type |
+|SDN |                           Software Defined Network |
+|UPF |                           User Plane Function |
+|RAN |                           Radio Access Network |
+|PCF |                           Policy Control Function |
+|VoIP |                          Voice Over Internet Protocol |
+|SST |                           Service Set Type |
+|SD |                            Service Domains |
+|SIP |                           Session Initiation Protocol |
+|UDM |	                        Unified Data Management |
+|AUSF |	                        Authentication Server Function |
+|UDR |	                        Unified Data Repository |
 
+## Project structure in GitHub
+
+1. [configs](Configs): Contains all the configuration for open5gs, UERANSIM, asterisk (VoIP server)
+2. [Presentation](Presentation): contains the ppt
+3. [Scripts](Scripts): Contains scripts for DDoS attack, netplan for static IP, setting up tunneling for upfs
+4. [Traces](Traces): logs and wireshark captures
+5. [UserGuide](UserGuide): FAQs, guides for installing all softwares used in the project
 
 
 ## Overview on 5G and Open5gs
 
 5G, the latest mobile telecommunications standard succeeding 4G/LTE, brings significant advancements in speed, capacity, and connectivity. 5G offers peak data rates reaching several gigabits per second, enabling faster downloads and improved network performance. With latency reduced to a few milliseconds, 5G supports real-time applications like AR, VR, and autonomous vehicles. 5G networks can handle more connected devices per area, crucial for IoT expansion. Operators can create virtualized network slices tailored to specific use cases such as enhanced mobile broadband, IoT, and low-latency communication. Advanced antenna technology like Massive MIMO improves spectral efficiency and data throughput. Leveraging high-band milimeter wave spectrum for faster data transfer, though requiring careful deployment due to shorter range. 5G incorporates encryption, authentication, and privacy features to protect user data and network integrity. Following 3GPP standards ensures interoperability across vendors and operators. Open5GS is an open-source project implementing network functions including AMF, SMF, PCF, UDM, AUSF, NRF, NSSF, UDR, and UPF. It facilitates the implementation of 5G SA networks with modular and scalable architecture. 
+
 
 ## UERANSIM
 
@@ -123,6 +142,7 @@ SIM: Simulator
 ## User Equipements (UEs)
 
 The User Equipment in a 5G network comprises devices like smartphones, tablets, and IoT gadgets that connect to the 5G infrastructure for communication services. It initiates and maintains connections with the network, interacting with various network functions like Access and Mobility Management, Session Management, and User Plane functions. The UE is vital for achieving 5G's high data rates, low latency, and support for numerous connected devices. Advanced features like improved antennas and compatibility with diverse spectrum bands enhance connectivity and user experience in the 5G network.
+
 
 ## gNBs
 
@@ -179,7 +199,7 @@ For connecting the Open Broadcaster Software (OBS) Studio installed on the User 
 
 ## Open5gs Network Architecture 
 The architecture of open5gs is structured to adhere to 3GPP (3rd Generation Partnership Project) standard for 5G network.
-![Architecture](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/Figures/Our_Architecture.png)
+![Architecture](Figures/Our_Architecture.png)
 
 
 The presented architecture provides an in-depth analysis of the architecture of a 5G network, outlining the various components deployed across the Control Plane and User Plane. The architecture is designed to support advanced functionalities such as network slicing, efficient data transmission, and the delivery of diverse services including File Sharing and VoIP Calling. The Control Plane comprises several critical functions responsible for managing network resources and controlling network operations. These functions include:
@@ -236,12 +256,11 @@ Table3: Data network configuration
 ## Implementation
 
 ### Installations
-1. [Installation on Mac](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/documentation/Install_Ubuntu_on_Mac.md): This section of the report will cover the process of installing the specified software or application on the macOS operating system. It will detail the steps involved in downloading the necessary installation files, navigating through the installation wizard, and configuring any settings required for successful installation. Additionally, it may include troubleshooting tips for common installation issues on Mac computers.
+1. [Installation on Mac](UserGuide/Install_Ubuntu_on_Mac.md): This section of the report will cover the process of installing the specified software or application on the macOS operating system. It will detail the steps involved in downloading the necessary installation files, navigating through the installation wizard, and configuring any settings required for successful installation. Additionally, it may include troubleshooting tips for common installation issues on Mac computers.
 
-2. [Installation on Windows](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/documentation/Install_Ubuntu_on_Windows.md): The report's part on installation instructions for the mentioned program or application on Windows will go into detail. It will contain instructions on how to obtain the installation files, carry out the installation, and modify the software settings as needed. Furthermore, compatibility problems specific to the Windows operating system will be discussed, along with possible workarounds.
+2. [Installation on Windows](UserGuide/Install_Ubuntu_on_Windows.md): The report's part on installation instructions for the mentioned program or application on Windows will go into detail. It will contain instructions on how to obtain the installation files, carry out the installation, and modify the software settings as needed. Furthermore, compatibility problems specific to the Windows operating system will be discussed, along with possible workarounds.
 
-3. [Installation of Open5GS and UERANSIM](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/documentation/Installation%20of%20Open5gs%20and%20UERANSIM.md):
-The installation of Open5GS and UERANSIM, two specialized software components linked to the infrastructure of the 5G network, will be the subject of this report's section. It will go through the procedures needed to install these parts on an appropriate operating system, like Ubuntu or Linux, including downloading the essential files, setting up dependencies, and starting the application. For testing and development reasons, it might also contain instructions on how to integrate Open5GS and UERANSIM with other network components.
+3. [Installation of Open5GS and UERANSIM](UserGuide/Installation of Open5gs and UERANSIM.md): The installation of Open5GS and UERANSIM, two specialized software components linked to the infrastructure of the 5G network, will be the subject of this report's section. It will go through the procedures needed to install these parts on an appropriate operating system, like Ubuntu or Linux, including downloading the essential files, setting up dependencies, and starting the application. For testing and development reasons, it might also contain instructions on how to integrate Open5GS and UERANSIM with other network components.
 
 ### Configuration of File Setup and Status Checking
 
@@ -316,8 +335,9 @@ npm run dev
 
 The WebUI can be accessed using the following URL: http://localhost:9999. After connecting to the WebUI, we added new subscribers for different slices, as shown in the provided screenshots. The configuration of one UE is depicted below, with similar configurations applied to all other UEs for each SST/SD combination.
 
-![WEBUI with one subscriber detail](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/Figures/ExampleUE.png)
-![List of UEs](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/Figures/ListofUEs.png)
+![WEBUI with one subscriber detail](Figures/ExampleUE.png)
+
+![List of UEs](Figures/ListofUEs.png)
 
 ### Establishment of User Planes for SST1 with SD1, SD2 and SD3
 
@@ -342,9 +362,9 @@ upf:
       dev: ogstun
 ```
 
-UPF1 configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/upf1). <br>
-UPF2 configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/upf2). <br>
-UPF3 configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/upf3). <br>
+UPF1 configuration: [UPF1](Configs/Final/upf1). <br>
+UPF2 configuration: [UPF2](Configs/Final/upf2). <br>
+UPF3 configuration: [UPF3](Configs/Final/upf3). <br>
 
 ![UPFs_Connected](Figures/UPFs_Connected.png)
 
@@ -352,13 +372,13 @@ UPF3 configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entro
 ## UERANSIM Configuration: gNodeB and UEs
 
 Following UEs are configured for using the services.
-We have used 5 UEs for our normal usecase. These can be found in [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/ue1) and [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/ue2).
+We have used 5 UEs for our normal usecase. These can be found in [UERANSIM-1](Configs/Final/ue1) and [UERANSIM-2](Configs/Final/ue2).
 
 ismi-999700000000001 and 999700000000002 : sst: 1, sd: 1, apn: internet for file transfer via upf1. <br>
 ismi-999700000000011 and 999700000000022 : sst: 1, sd: 2, apn: voip for VoIP and video streaming via upf2. <br>
 ismi-999700000000333: sst: 1, sd: 3, apn: internet2 for internet via upf3. <br>
 
-Once, all the UEs are configured run the services, you can find more info about running the gNBs and UEs here: [Link](UserGuide/Install_Ubuntu_on_Mac.md)
+Once, all the UEs are configured run the services, you can find more info about running the gNBs and UEs here: [Install_Ubuntu_on_Mac](UserGuide/Install_Ubuntu_on_Mac.md)
 
 ```console
 cd ~
@@ -368,6 +388,8 @@ build/nr-gnb -c config/open5gs-gnb.yaml
 
 ![gNB_Setup_Success](Figures/gNB_Setup_Success.png)
 
+![gNB_Setup_Success_WireShark](Figures/gNB_Setup_ws.png)
+
 ```console
 cd ~
 cd UERANSIM
@@ -375,6 +397,8 @@ sudo ./build/nr-ue -c config/open5gs-ue.yaml
 ```
 
 ![UE_Setup_Success](Figures/UE_Setup_Success.png)
+
+![UE_Setup_Success_Wireshark](Figures/Ue_setup_ws.png)
 
 ## Connecting to internet
 
@@ -387,10 +411,14 @@ cd build
 ```
 ![PingToInternet](Figures/PingToInternet.png)
 
+![Net_ping_wireshark](Figures/Net_ping_ws.png)
+
 ```console
 ping -I uesimtun0 8.8.8.8
 ```
 ![PingToDNS](Figures/PingToDNS.png)
+
+![PingToDNS_Wireshark](Figures/Dns_ping_ws.png)
 
 ## Asterisk and Twinkle Configuration for running VoIP service
 
@@ -398,7 +426,7 @@ To utilize VoIP service, a call server is established with the Asterisk package.
 
 ![SIP_UsersConnected](Figures/SIP_UsersConnected.png)
 
-Installation of Asterisk and Twinkle: [Link](UserGuide/Installing_Asterisk_and_Twinkle.md)
+Installation of Asterisk and Twinkle: [Installing_Asterisk_and_Twinkle](UserGuide/Installing_Asterisk_and_Twinkle.md)
 
 
 The 'Twinkle' softphone was installed on the User Equipments by downloading the software package from its official website. Subsequently, the twinkle package was extracted, and the application was launched using the following command via UERANSIM.
@@ -413,13 +441,11 @@ Once the UIs for softphone are open, you can check if the connection to SIP serv
 
 ![VoIP_Calling](Figures/VoIP_Calling.png)
 
-The logs looks as below:
-
-**  NOTE: Wireshark pics here **
+![VoIP_Calling_Wireshark](Figures/Twinkle_call_ws.png)
 
 ## Next Cloud for file transfer
 
-Installation and setup of NextCloud can be found here: [Link](UserGuide/Installing_NextCloud.md)
+Installation and setup of NextCloud can be found here: [Installing_NextCloud](UserGuide/Installing_NextCloud.md)
 Next cloud is installed on upf-3 VM to optimise resource. The admin pannel can be accessed using the link: 192.168.64.50/nextcloud/ , this can be accessed from the VM in which the server is running. The IP address is the VMs IP address. 
 
 ![Nextcloud_login](Figures/Nextcloud_login.png)
@@ -557,14 +583,18 @@ First, we run the open5gs core and the upfs. Later the gNB is connected. We try 
 
 ![ISMI_Not_Reg](Figures/ISMI_Not_Reg.png)
 
-The logs for the same can be found here: [Link](Traces/UE_ISMI_NotReg.pcapng)
+![ISMI_Not_Reg_Wireshark](Figures/ismi_notreg_ws.png)
+
+The logs for the same can be found here: [ismiNotReg](Traces/UE_ISMI_NotReg.pcapng)
 
 ### Slice not supported
 The requested slice is not supported by the available gNB. Hence we check where the connection fails.
 
 ![SliceNotSupported](Figures/SliceNotSupported.png)
 
-The logs for the same can be found here: [Link](Traces/UE_SliceNotSupported.log)
+![SliceNotSupported_WireShark](Figures/Slice_not_supported_ws.png)
+
+The logs for the same can be found here: [SliceNotSupported](Traces/UE_SliceNotSupported.log)
 
 ### DDoS attack
 Since default configuration in the open5gs supports 1024 UEs, we tried to perform a DDoS attack on the gNB to see how a large number of connections are offered. We have 20 UEs configured in WebUI and rest does not exist. We use the following command to perform that.
@@ -575,9 +605,11 @@ sudo ./build/nr-ue -c config/ue1.yaml -n 200
 ```
 We have kept the count to 200, because our system is running with 1GB RAM and 1 CPU core. So during our multiple tests, we found that the UEs and gNB fails around 120-165 UEs. Both the interface goes down. We observed that with more resources, we can reduce the failure for such numbers.
 
-![DDOS_GNB_Stopped](Figures/DDOS_GNB_Stopped.png)
+![DDoS_GNB_Stopped](Figures/DDOS_GNB_Stopped.png)
 
-![DDOS_UE_Stopped](Figures/DDOS_UE_Stopped.png)
+![DDoS_UE_Stopped](Figures/DDOS_UE_Stopped.png)
+
+![DDoS_Wireshark](Figures/DDoS_ws.png)
 
 The logs can be found here: [DDoS_UE](Traces/DDOS_UE.log) and [DDoS_gNB](Traces/DDOS_gNB.log)
 
@@ -602,10 +634,3 @@ We performed other tests, which tested all the slices and services with DN and i
 11. https://github.com/s5uishida/open5gs_5gc_ueransim_nearby_upf_sample_config
 12. https://open5gs.org/open5gs/docs/tutorial/04-metrics-prometheus/
 13. https://github.com/aligungr/UERANSIM/wiki/Usage
-
-## Conclusion
-
-To summarize..
-
-We have an exhaustive README template with many features. The README is easy to read and navigate like an article.
-In our future projects we can use this template to get a great head start in creating a custom README.
