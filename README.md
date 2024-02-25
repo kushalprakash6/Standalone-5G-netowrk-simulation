@@ -27,28 +27,41 @@
 
 ## Contents
 
-*   [Acknowledgement](#acknowledgement)
-*   [Project Planning Essentials](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/documentation/ProjectPlan.md)
-*   [Creation of NAT network](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/documentation/Creating_NAT_in_Virtualbox.md)
-*   [Acknowledgement](#acknowledgement)
-*   [Abstract](#abstract)
-*   [Definations and Abrrevations](#definition-and-abbreviations)
-*   [Introduction](#introduction)
-    * [Overview on open5gs](#overview-on-5g)
-    * [User Equipments UEs](#user-equipements-ues)
-    * [Next Generation NodeB - gNB](#gnbs)
-*   [Network Functions - NFs](#network-functions-nfs)
-*   [Network Slicing](#network-slicing)
-*   [Open5gs Network Architecture](#open5gs-network-architecture)
-*   [Services](#services)
-    * [VOiP](#voip)
-    * [File Transfer](#file-transfer)
-    * [Video Streaming](#video-streaming)
-*   [Technologies Used](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/documentation/Technologies%20Used.md)
-*   [Contribute](#contribute)
-*   [License](#license)
-*   [Sources](#sources)
-*   [Conclusion](#conclusion)
+1. [Acknowledgement](#acknowledgement)
+2. [Abstract](#abstract)
+3. [Introduction](#introduction)
+4. [Scope of the Project](#scope-of-the-project)
+5. [Definitions and Abbreviations](#definition-and-abbreviations)
+6. [Overview on 5G](#overview-on-5g)
+7. [UERANSIM](#ueransim)
+8. [User Equipments (UEs)](#user-equipements-ues)
+9. [gNBs](#gnbs)
+10. [Network Functions (NFs)](#network-functions-nfs)
+11. [Network Slicing](#network-slicing)
+12. [Data Network (DN)](#data-network-dn)
+13. [Design and Implementation](#design-and-implementation)
+14. [Open5gs Network Architecture](#open5gs-network-architecture)
+15. [Implementation](#implementation)
+    - [Installations](#installations)
+    - [Configuration File Setup and Status Checking](#configuration-file-setup-and-status-checking)
+    - [Register UE Device](#register-ue-device)
+    - [Establishment of User Planes](#establishment-of-user-planes-for-sst1-and-sd1-sd2-and-sd3)
+    - [UERANSIM Configuration](#ueransim-configuration-gnodeb-and-ues)
+16. [Services](#services)
+    - [VoIP (Voice over Internet Protocol)](#video-streaming)
+    - [File Transfer](#file-transfer)
+    - [Video Streaming](#video-streaming)
+17. [Running the 5G Network](#running-the-5g-network)
+18. [Network Slicing](#network-slicing)
+19. [Commands Used](#commands-that-are-used)
+20. [DDOS Attack on the Network](#ddos-attack-on-the-network)
+21. [Logging](#logging)
+22. [Testing](#testing)
+23. [Contribution](#contribute)
+24. [License](#license)
+25. [Sources](#sources)
+26. [Conclusion](#conclusion)
+
 
 ## Acknowledgement
 
@@ -85,6 +98,8 @@ UPF                           User Plane Function
 RAN                           Radio Access Network
 PCF                           Policy Control Function
 VOIP                          Voice Over Internet Protocol
+SST                           Service Set Type 
+SD                            Service Domains
 
 
 ## Overview on 5G
@@ -140,7 +155,7 @@ The Data Network (DN) in 5G architecture manages data traffic between User Equip
 
 ## Open5gs Network Architecture 
 The architecture of open5gs is structured to adhere to 3GPP (3rd Generation Partnership Project) standard for 5G network.
-![Architecture](documentation/resources/images/5G_NetworkArchitecture.png)
+![Architecture](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/Figures/Our_Architecture.png)
 
 
 The presented architecture provides an in-depth analysis of the architecture of a 5G network, outlining the various components deployed across the Control Plane and User Plane. The architecture is designed to support advanced functionalities such as network slicing, efficient data transmission, and the delivery of diverse services including File Sharing and VoIP Calling. The Control Plane comprises several critical functions responsible for managing network resources and controlling network operations. These functions include:
@@ -163,11 +178,10 @@ The Data Network hosts servers responsible for delivering specific services to u
 2. *Asterisk Server*: The Asterisk server, also located in the Data Network, facilitates VoIP Calling services, allowing users to make voice calls over the IP network.
 3. *Twinkle Service*: Additionally, the Twinkle service, integrated into the Data Network, enhances communication capabilities by enabling Voice over IP (VoIP) calls, text messaging, and other multimedia communication features. Twinkle serves as a versatile client software package, complementing the Asterisk server to provide seamless VoIP calling functionalities within the network.
 
-The architecture of the 5G network demonstrates a robust framework designed to support advanced communication services and accommodate the diverse needs of users. By deploying a comprehensive set of Control Plane and User Plane components, along with dedicated service servers, the network architecture ensures efficient data transmission, seamless connectivity, and reliable service delivery. Continued optimization and enhancements to the architecture will further enhance its scalability, reliability, and performance, paving the way for the future of 5G communication.
-
 
 ## Implementation
 
+### Installations
 1. [Installation on Mac](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/documentation/Install_Ubuntu_on_Mac.md): This section of the report will cover the process of installing the specified software or application on the macOS operating system. It will detail the steps involved in downloading the necessary installation files, navigating through the installation wizard, and configuring any settings required for successful installation. Additionally, it may include troubleshooting tips for common installation issues on Mac computers.
 
 2. [Installation on Windows](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/documentation/Install_Ubuntu_on_Windows.md): The report's part on installation instructions for the mentioned program or application on Windows will go into detail. It will contain instructions on how to obtain the installation files, carry out the installation, and modify the software settings as needed. Furthermore, compatibility problems specific to the Windows operating system will be discussed, along with possible workarounds.
@@ -175,7 +189,7 @@ The architecture of the 5G network demonstrates a robust framework designed to s
 3. [Installation of Open5GS and UERANSIM](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/documentation/Installation%20of%20Open5gs%20and%20UERANSIM.md):
 The installation of Open5GS and UERANSIM, two specialized software components linked to the infrastructure of the 5G network, will be the subject of this report's section. It will go through the procedures needed to install these parts on an appropriate operating system, like Ubuntu or Linux, including downloading the essential files, setting up dependencies, and starting the application. For testing and development reasons, it might also contain instructions on how to integrate Open5GS and UERANSIM with other network components.
 
-### Configuration File Setup and Status Checking
+### Configuration of File Setup and Status Checking
 
 After configuring the AMF and SMF files, four NSSF configuration files were created to align with the project requirements, each tailored for specific SST and SD combinations. A screenshot of one of the NSSF files displaying the edited IP address, SST, and SD values is provided, with similar adjustments made to the other NSSF files.
 
@@ -185,14 +199,28 @@ Following the completion of Open5GS installation, the status of the AMF and SMF 
     sudo service open5gs-amfd status
     sudo service open5gs-smfd status
 ```
+NSSF configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/Configs/Final/Open5gs/open5gs/nssf.yaml)
+
 ### Register UE Device
 
 Open5GS provides a WebUI application accessible through a web browser. To access this interface, we installed the Firefox browser and connected to the WebUI within the container session. The WebUI can be accessed using the following URL: http://localhost:9000. After connecting to the WebUI, we added new subscribers for different slices, as shown in the provided screenshots. The configuration of one UE is depicted below, with similar configurations applied to all other UEs for each SST/SD combination.
 
-Fig: WEBUI with one subscriber detail
-Fig: WEBUI with four subscriber (UE)
+![WEBUI with one subscriber detail](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/Figures/ExampleUE.png)
+![List of UEs](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/Figures/ListofUEs.png)
 
-### Establishment of User Planes for SST1 and SST2
+### Establishment of User Planes for SST1 with SD1, SD2 and SD3
+
+In our 5G architecture, we divide the control plane with Open5gs, while the user plane includes UPFs, UEs, and RANs. We utilize SST1, which creates user planes using SD1, SD2, and SD3, representing distinct network functional areas. To optimize resource usage, we host the VoIP server Asterisk and file-sharing server Nextcloud on the UPF3 VM, while the video streaming server Owncast runs on UPF2. We implement network slicing with three slices:
+1. *SD1*: Standard internet access with moderate priority and low latency.
+2. *SD2*: Tailored for VoIP and video streaming with low latency.
+3. *SD3*: Dedicated to file sharing with low priority, efficiently utilizing network resources.
+
+UPF1 configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/upf1)
+UPF2 configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/upf2)
+UPF3 configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/upf3)
+
+*Note: Write about the UPF configured files*
+
 ### UERANSIM Configuration: gNodeB and UEs
 
 ## Services
@@ -209,7 +237,7 @@ Installation of Asterisk and Twinkle: [Link](https://github.com/FRA-UAS/mobcomwi
 
 ```
 ```
-Fig: of Asterisk and twinkle with db show 
+![Asterisk and twinkle](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/asterisk-sip-setup.jpg)
 
 On system startup, Kamailio requires manual initiation. The 'Zoiper' softphone was installed on the User Equipments by downloading the software package from its official website. Subsequently, the zipped package was extracted, and the application was launched using the relevant commands.
 ```
@@ -226,7 +254,8 @@ Installation and setup of NextCloud: [Link](https://github.com/FRA-UAS/mobcomwis
 
 ```
 ```
- ![NextCloud](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/next-cloud-2.jpg)
+![NextCloud_Login](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/next-cloud-1.jpg)
+![NextCloud](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/next-cloud-2.jpg)
 
 ## Video streaming
 
@@ -240,26 +269,32 @@ For connecting the Open Broadcaster Software (OBS) Studio installed on the User 
 
 Once OBS Studio is set up, the broadcasting User Equipment can start streaming using the uesimtun0 interface through the nr-binder tool of UERANSIM.
 ```
+    sudo apt install obs-studio
 ```
+![Owncast](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/Figures/OwnCastServerStreaming.png)
 
+## Running the 5G Network
+### Run Open5gs and UERANSIM
+### Run Open5gs 5GC U-Plane1 (UPF1), U-Plane2 (UPF2) & U-Plane3 (UPF3)
+### Run UERANSIM gNB
+### Attaching the UEs
+
+
+## Network Slicing
+### File sharing using NextCloud 
+### Video Live Streaming using OwnCast and OBS
+### VOIP SIP Calling using Asterisk and Twinkle Server 
+
+## Commands that are used 
+
+## DDOS attack on the network
+
+
+## Logging
 
 
 ### Testing
 
-Below are some of the tests we performed both to test the feature and to see the failure points.
-
-## Running the 5G Network
-
-## Network Slicing
-
-## DDOS attack on the network
-By using many UEs to connect with the network at once in loop we can over load the tower to crash it, also given the low system specification, we can achieve it sooner.
-
-### Logging
-
-Logging is essential. How do you know something went wrong if the computer doesn't tell you? Logs
-are the first place to search for bugs. Explain to everybody how you can customize it or used it
-in the right way.
 
 ## Contribute
 
