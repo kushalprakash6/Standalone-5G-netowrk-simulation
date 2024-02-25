@@ -1,23 +1,25 @@
 # Installation guide for Open5gs and UERANSIM
 
+
 ## Contents
 
-- [Introduction](#introduction)
-- [Install Dependencies](#install-dependencies)
-- [Install gnupp Packages](#install-gnupp-packages)
-- [Install MongoDB Packages](#install-mongodb-packages)
-- [Install Open5gs (latest version)](#install-open5gs-latest-version)
-- [Install WebUI](#install-webui)
-- [Start, restart, or stop any Open5gs service](#start-restart-or-stop-any-open5gs-service)
-- [Check the IP addresses in the system](#check-the-ip-addresses-in-the-system)
-- [Modify AMF, UPF, and SMF](#modify-amf-upf-and-smf)
-- [Add subscribers in the WebUI](#add-subscribers-in-the-webui)
-- [Installation guide on UERANSIM](#installation-guide-on-ueransim)
-- [Getting the UERANSIM](#getting-the-ueransim)
-- [Requirements](#requirements)
-- [Dependencies](#dependencies)
-- [Navigate to UERANSIM directory](#navigate-to-ueransim-directory)
-- [Verify Installation](#verify-installation)
+1. [Installation of Open5gs](#installation-of-open5gs)
+2. [Introduction](#introduction)
+3. [Install Dependencies](#0-install-dependencies)
+4. [Install gnupp Packages](#1-install-gnupp-packages)
+5. [Install MongoDB Packages](#2-install-mongodb-packages)
+6. [Install Open5gs (Latest Version)](#3-install-open5gs-latest-version)
+7. [Install WebUI](#4-install-webui)
+8. [Start, Restart or Stop any Open5gs Service](#5-start-restart-or-stop-any-open5gs-service)
+9. [Check the IP Addresses in the System](#6-check-the-ip-addresses-in-the-system)
+10. [Modify AMF, UPF and SMF](#7-now-modify-amf-upf-and-smf)
+11. [Add Subscribers in the WebUI](#8-add-subscribers-in-the-webui)
+12. [Adding Network Tunnels in UPFs](#9-adding-network-tunnels-in-upfs)
+13. [Getting the UERANSIM](#installation-guide-on-ueransim)
+14. [Requirements](#requirements)
+15. [Dependencies](#dependencies)
+16. [Verify Installation](#verify-installation)
+
 
 
 ## Installation of Open5gs
@@ -209,23 +211,47 @@ In this file, we do not focus on building from sources, but on standard installa
     
     Open file amf.yaml and change the ngap server address to local IP address from above 
     
-    * Add image*
+```console
+  ngap:
+    server:
+      - address: 192.168.64.30
+```
     
     open file upf.yaml and change gtpu server address to local IP address from above 
     
-    * Add image*
+```console
+upf:
+  pfcp:
+    server:
+      - address: 192.168.64.40
+  gtpu:
+    server:
+      - address: 192.168.64.40
+    ```
     
     SMF needs to be modified for network slicing
     
-    * Add image *
+```console
+  pfcp:
+    server:
+      - address: 192.168.64.110
+        dnn: internet
+    client:
+      upf:
+        - address: 192.168.64.40
+          dnn: internet
+   gtpu:
+     server:
+       - address: 192.168.64.110
+```
     
     After the config changes restart the services
     
-```console    
-      sudo systemctl restart open5gs-smfd
-      sudo systemctl restart open5gs-amfd
-      sudo systemctl restart open5gs-upfd 
-```      
+  ```console    
+    sudo systemctl restart open5gs-smfd
+    sudo systemctl restart open5gs-amfd
+    sudo systemctl restart open5gs-upfd 
+  ```      
       
       
 ### 8. Add subscribers in the WebUI
@@ -245,17 +271,16 @@ In this file, we do not focus on building from sources, but on standard installa
     
     These informations are available in open5gs-ue.yaml file of UERANSIM. 
     
-    * Add images*
 
 ### 9. Adding network tunnels in UPFs
 
   ```console
     cd ~
     sudo sysctl -w net.ipv4.ip_forward=1
-    sudo ip tuntap add name ogstun2 mode tun
-    sudo ip addr add 10.46.0.1/16 dev ogstun2
-    sudo ip link set ogstun2 up
-    sudo iptables -t nat -A POSTROUTING -s 10.46.0.0/16 ! -o ogstun2 -j MASQUERADE
+    sudo ip tuntap add name ogstun mode tun
+    sudo ip addr add 10.45.0.1/16 dev ogstun
+    sudo ip link set ogstun up
+    sudo iptables -t nat -A POSTROUTING -s 10.45.0.0/16 ! -o ogstun -j MASQUERADE
   ```
 
 
@@ -296,13 +321,10 @@ These are the required dependencies to installed.
   sudo apt install iproute2
   sudo snap install cmake --classic
 ```
-![UERANSIM build successfully](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/UERANSIM-built-sucessfully.png)
-
-
 
 Note: Avoid installing cmake with sudo apt-get install cmake as it may install an older version. Instead, use sudo snap install cmake --classic or build cmake from sources directly.
 
-## Navigate to UERANSIM directory
+Navigate to UERANSIM directory
 ```console
   cd ~/UERANSIM
 ```
@@ -318,6 +340,15 @@ After successful compilation, the output binaries will be copied to ~/UERANSIM/b
 . nr-cli: CLI tool for 5G gNB and UE
 . nr-binder: Tool for utilizing UE's internet connectivity.
 . libdevbnd.so: Dynamic library for nr-binder
+
+After configuring you can use the following command to run gNB and UEs
+
+```console
+build/nr-gnb -c config/open5gs-gnb.yaml
+```
+```console
+sudoo ./build/nr-ue -c config/open5gs-ue.yaml
+```
 
 ![components of UERANSIM](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/components%20in%20UERANSIM.jpg)
 
