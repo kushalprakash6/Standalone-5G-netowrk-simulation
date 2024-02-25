@@ -47,20 +47,20 @@ uacAcc:
 # Initial PDU sessions to be established
 sessions:
   - type: 'IPv4'
-    apn: 'internet'
+    apn: 'voip'
     slice:
       sst: 1
-      sd: 000001
+      sd: 000002
 
 # Configured NSSAI for this UE by HPLMN
 configured-nssai:
   - sst: 1
-    sd: 000001
+    sd: 000002
 
 # Default Configured NSSAI for this UE
 default-nssai:
   - sst: 1
-    sd: 000001
+    sd: 000002
 
 # Supported integrity algorithms by this UE
 integrity:
