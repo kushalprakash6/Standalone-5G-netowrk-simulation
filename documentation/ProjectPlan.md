@@ -2,18 +2,52 @@
 
 ## Contents
 
-*   [TBU
-
-
-## Project planning
-
-
 ## Roles
 
 1. Kushal Prakash - Project planning, project tracking, product owner, developer, reviewer, documentation
 2. Karthik Kothamangala Sreenath - Project planning, Developer, System Architect, Documentation.
 3. Madhushree Manjunatha Lakshmidevi - Project planning, Architecture designer, developer, documentation.
 4. Padmini Manjunatha - Project Planning, System Architect, Developer, Documentation.
+
+## Sprints Overview
+
+### [Sprints overview - Kushal Prakash](#sprints-overview---kushal-prakash)
+   - [Sprint 1](#sprint-1)
+   - [Sprint 2](#sprint-2)
+   - [Sprint 3](#sprint-3)
+   - [Sprint 4](#sprint-4)
+   - [Sprint 5](#sprint-5)
+   - [Sprint 6](#sprint-6)
+
+### [Sprints overview - Madhushree Manjunatha Lakshmidevi](#sprints-overview---madhushree-manjunatha-lakshmidevi)
+   - [Sprint 1](#sprint-1-1)
+   - [Sprint 2](#sprint-2-1)
+   - [Sprint 3](#sprint-3-1)
+   - [Sprint 4](#sprint-4-1)
+   - [Sprint 5](#sprint-5-1)
+   - [Sprint 6](#sprint-6-1)
+
+### [Sprints overview - Padmini Manjunatha](#sprints-overview---padmini-manjunatha)
+   - [Sprint 1](#sprint-1-2)
+   - [Sprint 2](#sprint-2-2)
+   - [Sprint 3](#sprint-3-2)
+   - [Sprint 4](#sprint-4-2)
+   - [Sprint 5](#sprint-5-2)
+   - [Sprint 6](#sprint-6-2)
+
+### [Sprints overview - Karthik Kothamangala Sreenath](#sprints-overview---karthik-kothamangala-sreenath)
+   - [Sprint 1](#sprint-1-3)
+   - [Sprint 2](#sprint-2-3)
+   - [Sprint 3](#sprint-3-3)
+   - [Sprint 4](#sprint-4-3)
+   - [Sprint 5](#sprint-5-3)
+   - [Sprint 6](#sprint-6-3)
+
+
+
+
+
+
    
 ## Sprints overview - Kushal Prakash
 
@@ -47,7 +81,7 @@
 3. Installing Open5gs in Ubuntu 20.04 using Oracle VirtualBox
 4. Installing UERANSIM in Ubuntu 20.04 using Oracle VirtualBox  
 5. Building Open5gs from sources on ARM architecture
-6. Checking this issue - https://github.com/open5gs/open5gs/discussions/2782#discussioncomment-8070985
+6. Discussing this issue as it was still open - https://github.com/open5gs/open5gs/discussions/2782#discussioncomment-8070985
 7. Updated documentation about the tools used and the process
 
 ### Sprint 4
@@ -70,6 +104,9 @@
 3. Testing the network
 4. Adding 3rd slice
 5. Implement VoIP using Asterisk and Twinkle
+6. Implement Owncast for video straming service
+7. Fix minor issues
+8. Video presentation and demo
 
 
 ## Sprints overview - Madhushree Manjunatha Lakshmidevi
