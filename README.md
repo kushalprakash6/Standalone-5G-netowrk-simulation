@@ -342,9 +342,9 @@ upf:
       dev: ogstun
 ```
 
-UPF1 configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/upf1)
-UPF2 configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/upf2)
-UPF3 configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/upf3)
+UPF1 configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/upf1). <br>
+UPF2 configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/upf2). <br>
+UPF3 configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/upf3). <br>
 
 ![UPFs_Connected](Figures/UPFs_Connected.png)
 
@@ -354,13 +354,13 @@ UPF3 configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entro
 Following UEs are configured for using the services.
 We have used 5 UEs for our normal usecase. These can be found in [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/ue1) and [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/ue2).
 
-ismi-999700000000001 and 999700000000002 : sst: 1, sd: 1, apn: internet for file transfer via upf1
-ismi-999700000000011 and 999700000000022 : sst: 1, sd: 2, apn: voip for VoIP and video streaming via upf2
-ismi-999700000000333: sst: 1, sd: 3, apn: internet2 for internet via upf3
+ismi-999700000000001 and 999700000000002 : sst: 1, sd: 1, apn: internet for file transfer via upf1. <br>
+ismi-999700000000011 and 999700000000022 : sst: 1, sd: 2, apn: voip for VoIP and video streaming via upf2. <br>
+ismi-999700000000333: sst: 1, sd: 3, apn: internet2 for internet via upf3. <br>
 
 Once, all the UEs are configured run the services, you can find more info about running the gNBs and UEs here: [Link](UserGuide/Install_Ubuntu_on_Mac.md)
 
-'''console
+```console
 cd ~
 cd UERANSIM
 build/nr-gnb -c config/open5gs-gnb.yaml
@@ -368,7 +368,7 @@ build/nr-gnb -c config/open5gs-gnb.yaml
 
 ![gNB_Setup_Success](Figures/gNB_Setup_Success.png)
 
-'''console
+```console
 cd ~
 cd UERANSIM
 sudo ./build/nr-ue -c config/open5gs-ue.yaml
@@ -376,7 +376,23 @@ sudo ./build/nr-ue -c config/open5gs-ue.yaml
 
 ![UE_Setup_Success](Figures/UE_Setup_Success.png)
 
-## Asterisk and Twinkle Configuration for running VoIP service: 
+## Connecting to internet
+
+We are using slice 3 via upf-3 for connecting to the internet. Pinging to internet and DNS can be done to verify that the interfaces are able to connect to the internet. 
+```console
+cd ~
+cd UERANSIM
+cd build
+./nr-binder <TUN IP address> ping google.com
+```
+![PingToInternet](Figures/PingToInternet.png)
+
+```console
+ping -I uesimtun0 8.8.8.8
+```
+![PingToDNS](Figures/PingToDNS.png)
+
+## Asterisk and Twinkle Configuration for running VoIP service
 
 To utilize VoIP service, a call server is established with the Asterisk package. Asterisk serves as the "Call Server" and utilizes the MariaDB database server for authentication, a provision available within Asterisk. The protocol employed for VoIP communication is SIP (Session Initiation Protocol). User registration is facilitated through the 'Twinkle' application. Each host (UE) configured with slice SST1, SD1, and SST2, SD2 for VoIP services is equipped with the Twinkle package. The users created in the database are then registered on each host using Twinkle to enable call placement after establishing the PDU Session via the uesimtun0 interface using the nr-binder tool of UERANSIM. Asterisk server runs in background and need not be started specifically. You can open the server to check the statics.
 
@@ -440,7 +456,7 @@ sudo ./owncast
 
 To initiate the video streaming service, open browser to configure the admin interface of the Owncast server. To verify the installation, we access the default page using the server's IP address at port 8080 (localhost:8080). Subsequently, the Owncast configuration is performed by logging into the /admin backend dashboard.
 
-![OwnCastServerStreaming](Figures/OwnCastServerStreaming.png)
+![ObsStreaming](Figures/ObsStreaming.png)
 
 For connecting the Open Broadcaster Software (OBS) Studio installed on the User Equipment to the Owncast Server, OBS Studio, an open-source software for recording and live streaming, is installed on the User Equipment designated as 'ue1'. This User Equipment is dedicated to the slice with SST 1, SD 1, and is configured to broadcast video on a TUN interface after establishing a PDU session via the 5G Core. OBS Studio installation and configuration on the broadcasting User Equipment are completed using the provided commands.
 For our config we got the following IP address for connecting OBS to owncast: 192.168.64.60:1935/live 
@@ -452,40 +468,121 @@ cd ~
 cd UERANSIM
 cd build
 suso su
-sh nr-binder <TUN IP address> obs
+sh nr-binder <TUN IP address> obs    #For streamer
 ```
-![ObsStreaming](Figures/ObsStreaming.png)
+```console
+cd ~
+cd UERANSIM
+cd build
+suso su
+sh nr-binder <TUN IP address> firefox --no-sandbox    #For stream users
+```
 
+![OwnCastServerStreaming](Figures/OwnCastServerStreaming.png)
 
 
 ## Running the 5G Network
-### Run Open5gs and UERANSIM
-### Run Open5gs 5GC U-Plane1 (UPF1), U-Plane2 (UPF2) & U-Plane3 (UPF3)
-### Run UERANSIM gNB
-### Attaching the UEs
 
+### Run Open5gs and Open5gs U-Plane1 (UPF1), U-Plane2 (UPF2) & U-Plane3 (UPF3)
+To run the open5gs, we need to run all the services in the following steps. Some of the steps are already discussed above, but here it will be in complete details.
+```console
+sudo su
+cd
+cd open5gs
+./install/bin/open5gs-nrfd & ./install/bin/open5gs-scpd & ./install/bin/open5gs-amfd & ./install/bin/open5gs-smfd -c install/etc/open5gs/smf1.yaml & ./install/bin/open5gs-smfd -c install/etc/open5gs/smf2.yaml & ./install/bin/open5gs-ausfd & ./install/bin/open5gs-udmd & ./install/bin/open5gs-udrd & ./install/bin/open5gs-pcfd & ./install/bin/open5gs-nssfd & ./install/bin/open5gs-bsfd
+```
+If you wish to stop all the services, you need to use the following command
+```console
+'control key' + 'c'
+killall open5gs-nrfd open5gs-scpd open5gs-amfd open5gs-smfd open5gs-upfd open5gs-ausfd open5gs-udmd open5gs-pcfd open5gs-nssfd open5gs-bsfd open5gs-udrd open5gs-mmed open5gs-sgwcd open5gs-sgwud open5gs-hssd open5gs-pcrfd
+```
 
-## Network Slicing
-### File sharing using NextCloud 
-### Video Live Streaming using OwnCast and OBS
-### VOIP SIP Calling using Asterisk and Twinkle Server 
-
-## Commands that are used 
-
-## DDOS attack on the network
+You can use the following command in each upf VM to run the UPF
+```console
+sudo su
+cd
+cd open5gs
+/.install/bin/open5gs-upfd
+```
 
 
 ## Logging
 
+Open5gs provides logging and metrics for each of the service. Logs can be found at the location ../open5gs/install/var/log/open5gs/<service>.log for eample open5gs/install/var/log/open5gs/amf.log
+The logs of the services when we were running the tests are found here: [Link](Traces/open5gs-logs).
 
-### Testing
+Open5gs uses Promethus to provide metrics for each of the service and you will find the metrics configuration in the .yaml file of all the service configuration. You need to change the default IP address configured there, as it overlaps with other configs, so check which addresses and ports and free and map it to fetch the information. Below, I have showed sample config and output for AMF service. This can be extended to other services similarly.
+```console
+#amf.yaml
+  metrics:
+    server:
+      - address: 127.0.0.99
+        port: 9090
+```
+
+![PromethusLog](Figures/PromethusLog.png)
 
 
-## Contribute
+### Setup tunneling in UPF
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+The following commands are used for setting up tunneling in UPFs.
+```console
+sudo sysctl -w net.ipv4.ip_forward=1
+sudo ip tuntap add name ogstun mode tun
+sudo ip addr add 128.45.0.1/16 dev ogstun
+sudo ip link set ogstun up
+sudo iptables -t nat -A POSTROUTING -s 128.45.0.0/16 ! -o ogstun -j MASQUERADE
+```
+```console
+sudo sysctl -w net.ipv4.ip_forward=1
+sudo ip tuntap add name ogstun mode tun
+sudo ip addr add 128.46.0.1/16 dev ogstun
+sudo ip link set ogstun up
+sudo iptables -t nat -A POSTROUTING -s 128.46.0.0/16 ! -o ogstun -j MASQUERADE
+```
+```console
+sudo sysctl -w net.ipv4.ip_forward=1
+sudo ip tuntap add name ogstun mode tun
+sudo ip addr add 128.47.0.1/16 dev ogstun
+sudo ip link set ogstun up
+sudo iptables -t nat -A POSTROUTING -s 128.47.0.0/16 ! -o ogstun -j MASQUERADE
+```
 
-Please make sure to update tests as appropriate.
+## Testing
+
+After the configuration, we performed extensive tests to check the robustness of our setup. 
+
+### ismi not registered
+First, we run the open5gs core and the upfs. Later the gNB is connected. We try to connect UE with a ismi not registered in the WebUI. The following error is returned when it is executed.
+
+![ISMI_Not_Reg](Figures/ISMI_Not_Reg.png)
+
+The logs for the same can be found here: [Link](Traces/UE_ISMI_NotReg.pcapng)
+
+### Slice not supported
+The requested slice is not supported by the available gNB. Hence we check where the connection fails.
+
+![SliceNotSupported](Figures/SliceNotSupported.png)
+
+The logs for the same can be found here: [Link](Traces/UE_SliceNotSupported.log)
+
+### DDoS attack
+Since default configuration in the open5gs supports 1024 UEs, we tried to perform a DDoS attack on the gNB to see how a large number of connections are offered. We have 20 UEs configured in WebUI and rest does not exist. We use the following command to perform that.
+```console
+cd ~
+cd UERANSIM
+sudo ./build/nr-ue -c config/ue1.yaml -n 200
+```
+We have kept the count to 200, because our system is running with 1GB RAM and 1 CPU core. So during our multiple tests, we found that the UEs and gNB fails around 120-165 UEs. Both the interface goes down. We observed that with more resources, we can reduce the failure for such numbers.
+
+![DDOS_GNB_Stopped](Figures/DDOS_GNB_Stopped.png)
+
+![DDOS_UE_Stopped](Figures/DDOS_UE_Stopped.png)
+
+The logs can be found here: [DDoS_UE](Traces/DDOS_UE.log) and [DDoS_gNB](Traces/DDOS_gNB.log)
+
+### Other tests
+We performed other tests, which tested all the slices and services with DN and internet. Those logs can be found here: [LogsAndTraces](Traces)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
@@ -504,20 +601,7 @@ Please make sure to update tests as appropriate.
 10. https://github.com/s5uishida/open5gs_5gc_ueransim_sample_config
 11. https://github.com/s5uishida/open5gs_5gc_ueransim_nearby_upf_sample_config
 12. https://open5gs.org/open5gs/docs/tutorial/04-metrics-prometheus/
-
-[react-markdown][react-markdown] - Project which served as an inspiration for this README
-
-[Blog post templates][blog-post-templates] - Used to structure this template as an easy to read blog post
-
-[About markdown][about-markdown] - Why should you use markdown?
-
-[Markdown Cheat Sheet][markdown-cheatsheet] - Get a fast overview of the syntax
-
-[//]: # "Source definitions"
-[react-markdown]: https://github.com/remarkjs/react-markdown "React-markdown project"
-[blog-post-templates]: https://backlinko.com/hub/content/blog-post-templates "Backlinko blog post templates"
-[about-markdown]: https://www.markdownguide.org/getting-started/ "Introduction to markdown"
-[markdown-cheatsheet]: https://www.markdownguide.org/cheat-sheet/ "Markdown Cheat Sheet"
+13. https://github.com/aligungr/UERANSIM/wiki/Usage
 
 ## Conclusion
 
