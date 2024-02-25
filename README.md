@@ -183,18 +183,18 @@ The architecture of open5gs is structured to adhere to 3GPP (3rd Generation Part
 
 
 The presented architecture provides an in-depth analysis of the architecture of a 5G network, outlining the various components deployed across the Control Plane and User Plane. The architecture is designed to support advanced functionalities such as network slicing, efficient data transmission, and the delivery of diverse services including File Sharing and VoIP Calling. The Control Plane comprises several critical functions responsible for managing network resources and controlling network operations. These functions include:
-1. *Authentication Server Function *: AUSF authenticates and authorizes users accessing the network, ensuring secure access to network services.
-2. *Bootstrap Function *: BSF facilitates the bootstrapping process for User Equipments (UEs), enabling them to establish connections with the network.
-3. *Network Repository Function *: NRF acts as a repository for network function information, enabling efficient network function discovery and selection.
-4. *Policy Control Function *: PCF enforces network policies and rules, ensuring Quality of Service (QoS) and prioritizing traffic based on predefined policies.
-5. *Unified Data Management and Unified Data Repository *: UDM and UDR store user-related data and subscription information, facilitating seamless user authentication and authorization processes.
-6. *Authentication Management Function *: AMF manages authentication procedures and mobility management, ensuring smooth handovers and continuity of service.
-7. *Network Slice Selection Function *: NSSF orchestrates network slicing, dividing the network into multiple virtualized slices optimized for specific use cases or applications. Multiple instances of NSSF (SST1 - SD1, SST1 - SD2, SST1 - SD3) are deployed to support diverse slicing requirements.
+1. *Authentication Server Function*: AUSF authenticates and authorizes users accessing the network, ensuring secure access to network services.
+2. *Bootstrap Function*: BSF facilitates the bootstrapping process for User Equipments (UEs), enabling them to establish connections with the network.
+3. *Network Repository Function*: NRF acts as a repository for network function information, enabling efficient network function discovery and selection.
+4. *Policy Control Function*: PCF enforces network policies and rules, ensuring Quality of Service (QoS) and prioritizing traffic based on predefined policies.
+5. *Unified Data Management and Unified Data Repository*: UDM and UDR store user-related data and subscription information, facilitating seamless user authentication and authorization processes.
+6. *Authentication Management Function*: AMF manages authentication procedures and mobility management, ensuring smooth handovers and continuity of service.
+7. *Network Slice Selection Function*: NSSF orchestrates network slicing, dividing the network into multiple virtualized slices optimized for specific use cases or applications. Multiple instances of NSSF (SST1 - SD1, SST1 - SD2, SST1 - SD3) are deployed to support diverse slicing requirements.
 
 The User Plane is responsible for handling data transmission and forwarding between User Equipments (UEs) and external networks. Key components in the User Plane include:
-1. *User Equipments *: UE1, UE2, and UE3 are endpoints that access network services and communicate with the network infrastructure.
-2. *User Plane Function *: UPF instances (UPF1, UPF2, UPF3) manage data forwarding and processing within the User Plane, ensuring efficient delivery of data packets to their intended destinations.
-3. *Session Management Function *: SMF instances (SMF1, SMF2, SMF3) handle session establishment and management, maintaining session states and ensuring seamless connectivity for UEs.
+1. *User Equipments*: UE1, UE2, and UE3 are endpoints that access network services and communicate with the network infrastructure.
+2. *User Plane Function*: UPF instances (UPF1, UPF2, UPF3) manage data forwarding and processing within the User Plane, ensuring efficient delivery of data packets to their intended destinations.
+3. *Session Management Function*: SMF instances (SMF1, SMF2, SMF3) handle session establishment and management, maintaining session states and ensuring seamless connectivity for UEs.
 
 The Data Network hosts servers responsible for delivering specific services to users. Notable servers include:
 
@@ -245,19 +245,76 @@ The installation of Open5GS and UERANSIM, two specialized software components li
 
 ### Configuration of File Setup and Status Checking
 
-After configuring the AMF and SMF files, four NSSF configuration files were created to align with the project requirements, each tailored for specific SST and SD combinations. A screenshot of one of the NSSF files displaying the edited IP address, SST, and SD values is provided, with similar adjustments made to the other NSSF files.
+After configuring the AMF and NSSF files, three SMF configuration files were created to align with the project requirements, each tailored for specific SST and SD combinations. Few of the major chanegs are shown below.
 
-Following the completion of Open5GS installation, the status of the AMF and SMF files was verified to ensure they were operational before proceeding with further configurations. The following commands were utilized to check the status of the AMF and SMF files:
+```console
+#amf.yaml
+  ngap:
+    server:
+      - address: 192.168.64.30
+```
+
+```console
+#nssf.yaml
+nssf:
+  sbi:
+    server:
+      - address: 127.0.0.14
+        port: 7777
+    client:
+      scp:
+        - uri: http://127.0.0.200:7777
+      nsi:
+        - uri: http://127.0.0.10:7777
+          s_nssai:
+            sst: 1
+            sd: 000001
+        - addr: 127.0.0.10
+          port: 7777
+          s_nssai:
+            sst: 1
+            sd: 000002
+        - addr: 127.0.0.10
+          port: 7777
+          s_nssai:
+            sst: 1
+            sd: 000003
+```
+```console
+#smf1.yaml
+  pfcp:
+    server:
+      - address: 192.168.64.110
+        dnn: internet
+    client:
+      upf:
+        - address: 192.168.64.40
+          dnn: internet
+  gtpu:
+    server:
+      - address: 192.168.64.110
+  session:
+    - subnet: 128.45.0.1/16
+    - dnn: internet
+```
+
+Following the completion of Open5GS installation, the status of the AMF and SMF files was verified to ensure they were operational before proceeding with further configurations. The following commands were utilized to check the status of the AMF and SMF files (Since we are building from sources we have to run each service manually using the following command):
 
 ``` 
-    sudo service open5gs-amfd status
-    sudo service open5gs-smfd status
+    ./install/bin/open5gs-nrfd & ./install/bin/open5gs-scpd & ./install/bin/open5gs-amfd & ./install/bin/open5gs-smfd -c install/etc/open5gs/smf1.yaml & ./install/bin/open5gs-smfd -c install/etc/open5gs/smf2.yaml & ./install/bin/open5gs-smfd -c install/etc/open5gs/smf3.yaml & ./install/bin/open5gs-ausfd & ./install/bin/open5gs-udmd & ./install/bin/open5gs-udrd & ./install/bin/open5gs-pcfd & ./install/bin/open5gs-nssfd & ./install/bin/open5gs-bsfd
 ```
-NSSF configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/Configs/Final/Open5gs/open5gs/nssf.yaml)
 
 ### Register UE Device
 
-Open5GS provides a WebUI application accessible through a web browser. To access this interface, we installed the Firefox browser and connected to the WebUI within the container session. The WebUI can be accessed using the following URL: http://localhost:9000. After connecting to the WebUI, we added new subscribers for different slices, as shown in the provided screenshots. The configuration of one UE is depicted below, with similar configurations applied to all other UEs for each SST/SD combination.
+Open5gs provides a WebUI application accessible through a web browser. To access this interface, we have to run the WebUI using the command mentioned below. 
+```console
+cd ~
+cd open5gs
+cd webui
+npm run dev
+```
+
+The WebUI can be accessed using the following URL: http://localhost:9999. After connecting to the WebUI, we added new subscribers for different slices, as shown in the provided screenshots. The configuration of one UE is depicted below, with similar configurations applied to all other UEs for each SST/SD combination.
 
 ![WEBUI with one subscriber detail](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/Figures/ExampleUE.png)
 ![List of UEs](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/Figures/ListofUEs.png)
@@ -265,59 +322,141 @@ Open5GS provides a WebUI application accessible through a web browser. To access
 ### Establishment of User Planes for SST1 with SD1, SD2 and SD3
 
 In our 5G architecture, we divide the control plane with Open5gs, while the user plane includes UPFs, UEs, and RANs. We utilize SST1, which creates user planes using SD1, SD2, and SD3, representing distinct network functional areas. To optimize resource usage, we host the VoIP server Asterisk and file-sharing server Nextcloud on the UPF3 VM, while the video streaming server Owncast runs on UPF2. We implement network slicing with three slices:
-1. *SD1*: Standard internet access with moderate priority and low latency.
-2. *SD2*: Tailored for VoIP and video streaming with low latency.
-3. *SD3*: Dedicated to file sharing with low priority, efficiently utilizing network resources.
+1. *SD1*: Dedicated to file sharing with low priority, efficiently utilizing network resources where throughput matters than latency (ARP 10).
+2. *SD2*: Tailored for VoIP and video streaming with low latency (ARP 2).
+3. *SD3*: Standard internet access with moderate priority and normal latency (ARP 8).
+
+The following is an example config for one of the u-plane, similar config for other upfs can be found in the links below
+```console
+#upf.yaml
+upf:
+  pfcp:
+    server:
+      - address: 192.168.64.40
+  gtpu:
+    server:
+      - address: 192.168.64.40
+  session:
+    - subnet: 128.45.0.1/16
+      dnn: internet
+      dev: ogstun
+```
 
 UPF1 configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/upf1)
 UPF2 configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/upf2)
 UPF3 configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/upf3)
 
-*Note: Write about the UPF configured files*
-
-### UERANSIM Configuration: gNodeB and UEs
-
-## Services
+![UPFs_Connected](Figures/UPFs_Connected.png)
 
 
-### Asterisk and Twinkle Configuration: 
+## UERANSIM Configuration: gNodeB and UEs
 
-To utilize VoIP service, a call server is established with the Asterisk package. Asterisk serves as the "Call Server" and utilizes the MariaDB database server for authentication, a provision available within Asterisk. The protocol employed for VoIP communication is SIP (Session Initiation Protocol). User registration is facilitated through the 'Twinkle' application. Each host (UE) configured with slice SST2, SD1, and SST2, SD2 for VoIP services is equipped with the Twinkle package. The users created in the database are then registered on each host using Twinkle to enable call placement after establishing the PDU Session via the uesimtun0 interface using the nr-binder tool of UERANSIM.
+Following UEs are configured for using the services.
+We have used 5 UEs for our normal usecase. These can be found in [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/ue1) and [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/tree/main/Configs/Final/ue2).
 
-Installation of Asterisk and Twinkle: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/UserGuide/Installing_Asterisk_and_Twinkle.md)
+ismi-999700000000001 and 999700000000002 : sst: 1, sd: 1, apn: internet for file transfer via upf1
+ismi-999700000000011 and 999700000000022 : sst: 1, sd: 2, apn: voip for VoIP and video streaming via upf2
+ismi-999700000000333: sst: 1, sd: 3, apn: internet2 for internet via upf3
 
+Once, all the UEs are configured run the services, you can find more info about running the gNBs and UEs here: [Link](UserGuide/Install_Ubuntu_on_Mac.md)
+
+'''console
+cd ~
+cd UERANSIM
+build/nr-gnb -c config/open5gs-gnb.yaml
 ```
+
+![gNB_Setup_Success](Figures/gNB_Setup_Success.png)
+
+'''console
+cd ~
+cd UERANSIM
+sudo ./build/nr-ue -c config/open5gs-ue.yaml
 ```
-![Asterisk and twinkle](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/asterisk-sip-setup.jpg)
 
-On system startup, Kamailio requires manual initiation. The 'Zoiper' softphone was installed on the User Equipments by downloading the software package from its official website. Subsequently, the zipped package was extracted, and the application was launched using the relevant commands.
+![UE_Setup_Success](Figures/UE_Setup_Success.png)
+
+## Asterisk and Twinkle Configuration for running VoIP service: 
+
+To utilize VoIP service, a call server is established with the Asterisk package. Asterisk serves as the "Call Server" and utilizes the MariaDB database server for authentication, a provision available within Asterisk. The protocol employed for VoIP communication is SIP (Session Initiation Protocol). User registration is facilitated through the 'Twinkle' application. Each host (UE) configured with slice SST1, SD1, and SST2, SD2 for VoIP services is equipped with the Twinkle package. The users created in the database are then registered on each host using Twinkle to enable call placement after establishing the PDU Session via the uesimtun0 interface using the nr-binder tool of UERANSIM. Asterisk server runs in background and need not be started specifically. You can open the server to check the statics.
+
+![SIP_UsersConnected](Figures/SIP_UsersConnected.png)
+
+Installation of Asterisk and Twinkle: [Link](UserGuide/Installing_Asterisk_and_Twinkle.md)
+
+
+The 'Twinkle' softphone was installed on the User Equipments by downloading the software package from its official website. Subsequently, the twinkle package was extracted, and the application was launched using the following command via UERANSIM.
+```console
+cd ~
+cd UERANSIM
+cd build
+sh nr-binder <TUN IP address> twinkle
 ```
+
+Once the UIs for softphone are open, you can check if the connection to SIP server is establised in the display window. Then you can place the call and it will look as shown below
+
+![VoIP_Calling](Figures/VoIP_Calling.png)
+
+The logs looks as below:
+
+**  NOTE: Wireshark pics here **
+
+## Next Cloud for file transfer
+
+Installation and setup of NextCloud can be found here: [Link](UserGuide/Installing_NextCloud.md)
+Next cloud is installed on upf-3 VM to optimise resource. The admin pannel can be accessed using the link: 192.168.64.50/nextcloud/ , this can be accessed from the VM in which the server is running. The IP address is the VMs IP address. 
+
+![Nextcloud_login](Figures/Nextcloud_login.png)
+
+Below, you can see the users user1 and user2 added in the admin pannel.
+
+![NextCloudAdminPannel](Figures/NextCloudAdminPannel.png)
+
+You can use the IP address of the VM in which the server is running. Use the following command in UERANSIM VMs to access it via the desired UEs and slice.
+
+```console
+cd ~
+cd UERANSIM
+cd build
+sh nr-binder <uesimtun0 IP address> firefox --no-sandbox
 ```
 
+In the following image, you can see that we have uploaded a file and given access for that file to another user, and then other user is able to access it.
+
+![FileSharing](Figures/FileSharing.png)
 
 
-Installation and setup of NextCloud: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/UserGuide/Installing_NextCloud.md)
+## Video streaming with Owncast
 
+To establish the video streaming service owncast server was installed in the VM upf-2 to optimise resource. Owncast was configured via its admin interface. Open Broadcaster Software (OBS) Studio was installed on User Equipment (UE) for broadcasting video. OBS enables recording and streaming of audio-visual content. Unlike Asterisks and Next Cloud servers, owncast server has to be started everytime the system is started. 
+
+```console
+sudo apt install owncast
+cd ~
+cd owncast
+sudo ./owncast
 ```
-```
-![NextCloud_Login](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/next-cloud-1.jpg)
-![NextCloud](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/resources/images/Madhushree/next-cloud-2.jpg)
+![OwnCastLog](Figures/OwnCastLog.png)
 
-## Video streaming
+To initiate the video streaming service, open browser to configure the admin interface of the Owncast server. To verify the installation, we access the default page using the server's IP address at port 8080 (localhost:8080). Subsequently, the Owncast configuration is performed by logging into the /admin backend dashboard.
 
-To establish the video streaming service, Owncast and Firefox browser were installed. Owncast was configured via its admin interface. Open Broadcaster Software (OBS) Studio was installed on User Equipment (UE) for broadcasting video. OBS enables recording and streaming of audio-visual content.
+![OwnCastServerStreaming](Figures/OwnCastServerStreaming.png)
 
-### Video streaming with OWNCAST:
-
-To initiate the video streaming service, Owncast is installed on the system. Following this, the Firefox browser is installed to configure the admin interface of the Owncast server. To verify the installation, we access the default page using the server's IP address at port xxxx:. Subsequently, the Owncast configuration is performed by logging into the /admin backend dashboard via port xxx: .
-
-For connecting the Open Broadcaster Software (OBS) Studio installed on the User Equipment to the Owncast Server, OBS Studio, an open-source software for recording and live streaming, is installed on the User Equipment designated as 'ue1.' This User Equipment is dedicated to the slice with SST 1, SD 1, and is configured to broadcast video on a TUN interface after establishing a PDU session via the 5G Core. OBS Studio installation and configuration on the broadcasting User Equipment are completed using the provided commands.
+For connecting the Open Broadcaster Software (OBS) Studio installed on the User Equipment to the Owncast Server, OBS Studio, an open-source software for recording and live streaming, is installed on the User Equipment designated as 'ue1'. This User Equipment is dedicated to the slice with SST 1, SD 1, and is configured to broadcast video on a TUN interface after establishing a PDU session via the 5G Core. OBS Studio installation and configuration on the broadcasting User Equipment are completed using the provided commands.
+For our config we got the following IP address for connecting OBS to owncast: 192.168.64.60:1935/live 
 
 Once OBS Studio is set up, the broadcasting User Equipment can start streaming using the uesimtun0 interface through the nr-binder tool of UERANSIM.
+```console
+sudo apt install obs-studio
+cd ~
+cd UERANSIM
+cd build
+suso su
+sh nr-binder <TUN IP address> obs
 ```
-    sudo apt install obs-studio
-```
-![Owncast](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/Figures/OwnCastServerStreaming.png)
+![ObsStreaming](Figures/ObsStreaming.png)
+
+
 
 ## Running the 5G Network
 ### Run Open5gs and UERANSIM
