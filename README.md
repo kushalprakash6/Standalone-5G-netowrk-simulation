@@ -46,7 +46,6 @@
 15. [File sharing using Nextcloud: Secure File Sharing and Collaboration Platform](#file-sharing-using-nextcloud-secure-file-sharing-and-collaboration-platform)
 16. [Video streaming using Owncast](#video-streaming-using-owncast)
 17. [Design and Implementation](#design-and-implementation)
-    - [Linux Based Virtual Machine](#linux-based-virtual-machine)
 18. [Open5gs Network Architecture](#open5gs-network-architecture)
 19. [Implementation](#implementation)
     - [Installations](#installations)
@@ -260,7 +259,7 @@ Table3: Data network configuration
 
 2. [Installation on Windows](UserGuide/Install_Ubuntu_on_Windows.md): The report's part on installation instructions for the mentioned program or application on Windows will go into detail. It will contain instructions on how to obtain the installation files, carry out the installation, and modify the software settings as needed. Furthermore, compatibility problems specific to the Windows operating system will be discussed, along with possible workarounds.
 
-3. [Installation of Open5GS and UERANSIM](UserGuide/Installation of Open5gs and UERANSIM.md): The installation of Open5GS and UERANSIM, two specialized software components linked to the infrastructure of the 5G network, will be the subject of this report's section. It will go through the procedures needed to install these parts on an appropriate operating system, like Ubuntu or Linux, including downloading the essential files, setting up dependencies, and starting the application. For testing and development reasons, it might also contain instructions on how to integrate Open5GS and UERANSIM with other network components.
+3. [Installation of Open5GS and UERANSIM](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/UserGuide/Installation%20of%20Open5gs%20and%20UERANSIM.md): The installation of Open5GS and UERANSIM, two specialized software components linked to the infrastructure of the 5G network, will be the subject of this report's section. It will go through the procedures needed to install these parts on an appropriate operating system, like Ubuntu or Linux, including downloading the essential files, setting up dependencies, and starting the application. For testing and development reasons, it might also contain instructions on how to integrate Open5GS and UERANSIM with other network components.
 
 ### Configuration of File Setup and Status Checking
 
