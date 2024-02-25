@@ -65,12 +65,12 @@
 
 ## Acknowledgement
 
-This project owes its successful completion to the invaluable assistance provided by Professor Dr. Armin Lehmann and Professor Ulrich Trick from Frankfurt University of Applied Sciences. Throughout the project's execution, their guidance and support were instrumental, playing a crucial role in helping us achieve our objectives. We are sincerely grateful to them for serving as our project mentors, imparting the knowledge and direction necessary for the project's successful culmination.
+This project owes its successful completion to the invaluable assistance provided by Professor Dr. Armin Lehmann and Gergor Frick from Frankfurt University of Applied Sciences. Throughout the project's execution, their guidance and support were instrumental, playing a crucial role in helping us achieve our objectives. We are sincerely grateful to them for serving as our project mentors, imparting the knowledge and direction necessary for the project's successful culmination.
 
 
 ## Abstract
 
-Compared to 4G network 5G offers high speed data rates and connectivity even during huge user volume. Along with this there are a variety of other applications supported by 5G network. The goal of a network slicing design for a 5G network is to increase network flexibility and dynamics to accommodate contemporary network applications. In this project, we have implemented a 5G Stand Alone (SA) network using Open5gs as a 5G core and UERANSIM as 5G-RAN. The main objective of this project is to implement network slicing to provide File Sharing, Streaming and VOIP calling services between two tenant groups. We configured Kamailio, Next Cloud and Owncast servers in different Vms to provide VOIP Calling, File Sharing and Streaming services respectively. The tenant groups were able to access the services using the dedicated slices as per their requirements.
+Compared to 4G network 5G offers high speed data rates and connectivity even during huge user volume. Along with this there are a variety of other applications supported by 5G network. The goal of a network slicing design for a 5G network is to increase network flexibility and dynamics to accommodate contemporary network applications. In this project, we have implemented a 5G Stand Alone (SA) network using Open5gs as a 5G core and UERANSIM as 5G-RAN. The main objective of this project is to implement network slicing to provide intertnet connection, File Sharing, Streaming and VoIP calling services between two tenant groups. We configured Asterisk, Next Cloud and Owncast servers in different Vms to provide VoIP Calling, File Sharing and Streaming services respectively. The tenant groups were able to access the services using the dedicated slices as per their requirements.
 
 ## Introduction
 
@@ -78,10 +78,11 @@ The fundamental architectural concepts and technological advancements of 5G dist
 
 ## Scope of the project
 
-The aim of this project is to construct a 5G-SA (Stand-alone) system utilizing Open5GS, capable of delivering diverse services between hosts and segmenting the data network accordingly. This endeavor is executed through UERANSIM. The concept is anticipated to be effective as it enables SIP sessions, file sharing, and streaming among designated hosts within each network slice, while restricting communication between servers in distinct network slices.
+The aim of this project is to construct a 5G-SA (Stand-alone) system utilizing Open5gs, capable of delivering diverse services between hosts and segmenting the data network accordingly. This endeavor is executed through UERANSIM. The concept is anticipated to be effective as it enables SIP sessions, file sharing, and streaming among designated hosts within each network slice.
 
 ## Definition and Abbreviations
 
+VM                            Virtual Machine
 5G SA                         5G Stand Alone
 AMF                           Access and Mobility Management Function
 5QI                           5G QoS Identifier
@@ -100,15 +101,20 @@ PCF                           Policy Control Function
 VOIP                          Voice Over Internet Protocol
 SST                           Service Set Type 
 SD                            Service Domains
+SIP                           Session Initiation Protocol
+UDM	                          Unified Data Management
+AUSF	                      Authentication Server Function
+UDR	                          Unified Data Repository
 
 
-## Overview on 5G
 
-5G, the latest mobile telecommunications standard succeeding 4G/LTE, brings significant advancements in speed, capacity, and connectivity. 5G offers peak data rates reaching several gigabits per second, enabling faster downloads and improved network performance. With latency reduced to a few milliseconds, 5G supports real-time applications like AR, VR, and autonomous vehicles. 5G networks can handle more connected devices per area, crucial for IoT expansion. Operators can create virtualized network slices tailored to specific use cases such as enhanced mobile broadband, IoT, and low-latency communication. Advanced antenna technology like Massive MIMO improves spectral efficiency and data throughput. Leveraging high-band mmWave spectrum for faster data transfer, though requiring careful deployment due to shorter range. 5G incorporates encryption, authentication, and privacy features to protect user data and network integrity. Following 3GPP standards ensures interoperability across vendors and operators. Open5GS is an open-source project implementing network functions including AMF, SMF, PCF, UDM, AUSF, NRF, NSSF, UDR, and UPF. It facilitates the implementation of 5G SA networks with modular and scalable architecture. 
+## Overview on 5G and Open5gs
+
+5G, the latest mobile telecommunications standard succeeding 4G/LTE, brings significant advancements in speed, capacity, and connectivity. 5G offers peak data rates reaching several gigabits per second, enabling faster downloads and improved network performance. With latency reduced to a few milliseconds, 5G supports real-time applications like AR, VR, and autonomous vehicles. 5G networks can handle more connected devices per area, crucial for IoT expansion. Operators can create virtualized network slices tailored to specific use cases such as enhanced mobile broadband, IoT, and low-latency communication. Advanced antenna technology like Massive MIMO improves spectral efficiency and data throughput. Leveraging high-band milimeter wave spectrum for faster data transfer, though requiring careful deployment due to shorter range. 5G incorporates encryption, authentication, and privacy features to protect user data and network integrity. Following 3GPP standards ensures interoperability across vendors and operators. Open5GS is an open-source project implementing network functions including AMF, SMF, PCF, UDM, AUSF, NRF, NSSF, UDR, and UPF. It facilitates the implementation of 5G SA networks with modular and scalable architecture. 
 
 ## UERANSIM
 
-UERANSIM is an open-source tool designed to simulate the behavior of 5G User Equipment (UE) in both Standalone (SA) and Non-Standalone (NSA) modes. It offers developers the capability to emulate 5G UE functionality within a controlled environment, enabling testing and experimentation with 5G networks without the necessity for physical devices. UERANSIM supports a range of essential features found in 5G networks, including registration procedures, mobility management, bearer establishment, and data transfer. Its flexibility and extensibility make it a valuable resource for network development, testing, and research endeavors within the 5G domain. 
+UERANSIM is an open-source tool designed to simulate the behavior of 5G User Equipment in both Standalone and Non-Standalone (NSA) modes. It offers developers the capability to emulate 5G UE functionality within a controlled environment, enabling testing and experimentation with 5G networks without the necessity for physical devices. UERANSIM supports a range of essential features found in 5G networks, including registration procedures, mobility management, bearer establishment, and data transfer. Its flexibility and extensibility make it a valuable resource for network development, testing, and research endeavors within the 5G domain. 
 UE:  User Equipment
 RAN: Radio Access Network
 SIM: Simulator
@@ -116,7 +122,7 @@ SIM: Simulator
 
 ## User Equipements (UEs)
 
-The User Equipment (UE) in a 5G network comprises devices like smartphones, tablets, and IoT gadgets that connect to the 5G infrastructure for communication services. It initiates and maintains connections with the network, interacting with various network functions like Access and Mobility Management, Session Management, and User Plane functions. The UE is vital for achieving 5G's high data rates, low latency, and support for numerous connected devices. Advanced features like improved antennas and compatibility with diverse spectrum bands enhance connectivity and user experience in the 5G network.
+The User Equipment in a 5G network comprises devices like smartphones, tablets, and IoT gadgets that connect to the 5G infrastructure for communication services. It initiates and maintains connections with the network, interacting with various network functions like Access and Mobility Management, Session Management, and User Plane functions. The UE is vital for achieving 5G's high data rates, low latency, and support for numerous connected devices. Advanced features like improved antennas and compatibility with diverse spectrum bands enhance connectivity and user experience in the 5G network.
 
 ## gNBs
 
@@ -132,26 +138,44 @@ Network Slicing is a key concept in 5G networks, enabling the creation of custom
 
 ## Data Network (DN)
 
-The Data Network (DN) in 5G architecture manages data traffic between User Equipment and external networks like the internet. It incorporates components such as the User Plane Function (UPF), facilitating data transmission with efficiency and low latency. The DN enhances data rates, connectivity, and the handling of diverse data types, bolstering 5G networks for advanced communication services and diverse applications.
+The Data Network in 5G architecture manages data traffic between User Equipment and external networks like the internet. It incorporates components such as the User Plane Function (UPF), facilitating data transmission with efficiency and low latency. The DN enhances data rates, connectivity, and the handling of diverse data types, bolstering 5G networks for advanced communication services and diverse applications.
 
+## VoIP (Voice over Internet Protocol) using Asterisk
+
+Voice over IP revolutionizes communication by enabling voice calls over the internet, offering cost-effective communication, seamless integration with internet services, and features like video calls and instant messaging. Asterisk serves as the central server, orchestrating call routing, security, and other functions, while Linphone serves as client software, enabling users to make and receive calls and instant messages using Asterisk's services. Together, Asterisk and Twinkle make VoIP a reality, ensuring smooth and secure communication. Additionally, Asterisk supports SIP-based applications beyond calling, while Twinkle offers various plugins for customization and features. This overview provides insight into how these components collaborate to deliver internet-based communication, with active communities available for further guidance.
+
+## File sharing using Nextcloud: Secure File Sharing and Collaboration Platform
+
+File transfer is crucial in digital communication, allowing seamless sharing of files via methods like email, USB drives, and network protocols. Nextcloud, a popular cloud-based file-sharing system, offers a secure platform for users to upload, organize, and share files. It provides features such as share links, user accounts, and real-time collaboration, with installation packages available for different operating systems. Nextcloud's user-friendly web interface simplifies file management and collaboration, making it ideal for various environments. It offers customizable configurations for enterprise-level collaboration or personal usage, enabling secure and efficient data transmission.
+Nextcloud has been installed on the system to facilitate seamless file sharing among users. Additionally, the Firefox browser has been installed in VM to configure both the admin and user profiles within the Nextcloud server. To access the Nextcloud server admin interface, users can navigate to the following URL in the VM where the server is installed : 192.168.64.50 , where the IP address 192.168.64.50 corresponds to the VM named 'upf-3' housing the Nextcloud server installation. Upon registration as an admin in Nextcloud, two user profiles(user1 and user2) are created to enable access to file sharing services for the two User Equipments with the slices and across it. Along with support for file sharing, next cloud also supports Messaging, shared document editing and private information manager.
+
+## Video streaming using Owncast
+
+To establish the video streaming service, Owncast, OBS-Studio and Firefox browser were installed. Owncast was configured via its admin interface. Open Broadcaster Software (OBS) Studio was installed on User Equipment for broadcasting video. OBS enables recording and streaming of audio-visual content.
+
+To initiate the video streaming service, Owncast is installed on the system. Following this, the Firefox browser is installed to configure the admin interface of the Owncast server. To verify the installation, we access the default page using the server's IP address at port localhost:8080. Subsequently, the Owncast configuration is performed by logging into the /admin backend dashboard.
+
+For connecting the Open Broadcaster Software (OBS) Studio installed on the User Equipment to the Owncast Server, OBS Studio, an open-source software for recording and live streaming, is installed on the User Equipment designated as 'ue1.' This User Equipment is dedicated to the slice with SST 1, SD2, and is configured to broadcast video on a TUN interface after establishing a PDU session via the 5G Core. OBS Studio installation and configuration on the broadcasting User Equipment are completed using the provided commands.
 
 ## Design and Implementation
 
-1. *Linux Based Virtual Machine*: The basic setup includes installing Oracle VM VirtualBox (version 7.0), a platform-agnostic virtualization tool that allows users to run multiple operating systems simultaneously. During installation, the Ubuntu 20.04 ISO file is utilized to configure the system.
+1. *Linux Based Virtual Machine*: The basic setup includes installing UTM for MacOs (version 4.4.4), a platform-agnostic virtualization tool that allows users to run multiple operating systems simultaneously. During installation, the Ubuntu 22.04 Server ARM64 arch ISO file is utilized to configure the system.
 
-2. *Asterisk*: For SIP VoIP Calling, Asterisk is installed in the system. Version 18 of Asterisk is supported. This feature will provide a calling service for the desired network slice.
+2. *Asterisk*: For SIP VoIP Calling, Asterisk is installed in the system. Version 18.10.0 of Asterisk is supported. This feature will provide a calling service for the desired network slice.
 
-3. *Twinkle*: To support VoIP calls, the Twinkle software package version 1.10.1 is installed on end users' systems. This feature enables VoIP calling functionalities.
+3. *Twinkle*: To support VoIP calls, the Twinkle software package version 1.10.2 is installed on end users' systems. This feature enables VoIP calling functionalities.
 
-4. *Wireshark*: For traffic collecting and analysis, Wireshark version 3.2.3 is installed as a packet capture tool. This version of Wireshark provides the necessary functionalities for capturing and analyzing network traffic.
+4. *Wireshark*: For traffic collecting and analysis, Wireshark version 3.6.2 is installed as a packet capture tool. This version of Wireshark provides the necessary functionalities for capturing and analyzing network traffic.
 
-5. *Owncast*: To enable video streaming services, owncast version 0.0.13 is installed and facilitates the setup and management of video streaming capabilities.
+5. *Owncast*: To enable video streaming services, owncast version 0.1.2-linux-arm64 is installed and facilitates the setup and management of video streaming capabilities.
 
-6. *NextCloud*: To establish a file sharing platform, Nextcloud version 23.0.0 is installed. This provides the necessary features for hosting and managing file sharing services.
+6. *NextCloud*: To establish a file sharing platform, Nextcloud version 28.0.2 is installed. This provides the necessary features for hosting and managing file sharing services.
 
-7. *Open5gs*: To establish the 5G core part in this project, Open5GS version 2.5.8 is installed, serving as the control plane of the 5G core network. 
+7. *Open5gs*: To establish the 5G core part in this project, Open5GS version 2.7.0 is installed, serving as the control plane of the 5G core network. 
 
-8. *UERANSIM*: UERANSIM version 3.2.6 is downloaded, which includes multiple User Equipment (UEs) and gNodeBs. 
+8. *UERANSIM*: UERANSIM version 3.2.6 is downloaded, which includes multiple User Equipment (UEs) and gNodeBs.
+
+9. *OBS-Studio*: OBS Studio (version 27.2.3) is a free and open-source, cross-platform screencasting and streaming application. We use it for hosting the video.
 
 ## Open5gs Network Architecture 
 The architecture of open5gs is structured to adhere to 3GPP (3rd Generation Partnership Project) standard for 5G network.
@@ -159,24 +183,54 @@ The architecture of open5gs is structured to adhere to 3GPP (3rd Generation Part
 
 
 The presented architecture provides an in-depth analysis of the architecture of a 5G network, outlining the various components deployed across the Control Plane and User Plane. The architecture is designed to support advanced functionalities such as network slicing, efficient data transmission, and the delivery of diverse services including File Sharing and VoIP Calling. The Control Plane comprises several critical functions responsible for managing network resources and controlling network operations. These functions include:
-1. *Authentication Server Function (AUSF)*: AUSF authenticates and authorizes users accessing the network, ensuring secure access to network services.
-2. *Bootstrap Function (BSF)*: BSF facilitates the bootstrapping process for User Equipments (UEs), enabling them to establish connections with the network.
-3. *Network Repository Function (NRF)*: NRF acts as a repository for network function information, enabling efficient network function discovery and selection.
-4. *Policy Control Function (PCF)*: PCF enforces network policies and rules, ensuring Quality of Service (QoS) and prioritizing traffic based on predefined policies.
-5. *Unified Data Management (UDM) and Unified Data Repository (UDR)*: UDM and UDR store user-related data and subscription information, facilitating seamless user authentication and authorization processes.
-6. *Authentication Management Function (AMF)*: AMF manages authentication procedures and mobility management, ensuring smooth handovers and continuity of service.
-7. *Network Slice Selection Function (NSSF)*: NSSF orchestrates network slicing, dividing the network into multiple virtualized slices optimized for specific use cases or applications. Multiple instances of NSSF (SST1 - SD1, SST1 - SD2, SST1 - SD3) are deployed to support diverse slicing requirements.
+1. *Authentication Server Function *: AUSF authenticates and authorizes users accessing the network, ensuring secure access to network services.
+2. *Bootstrap Function *: BSF facilitates the bootstrapping process for User Equipments (UEs), enabling them to establish connections with the network.
+3. *Network Repository Function *: NRF acts as a repository for network function information, enabling efficient network function discovery and selection.
+4. *Policy Control Function *: PCF enforces network policies and rules, ensuring Quality of Service (QoS) and prioritizing traffic based on predefined policies.
+5. *Unified Data Management and Unified Data Repository *: UDM and UDR store user-related data and subscription information, facilitating seamless user authentication and authorization processes.
+6. *Authentication Management Function *: AMF manages authentication procedures and mobility management, ensuring smooth handovers and continuity of service.
+7. *Network Slice Selection Function *: NSSF orchestrates network slicing, dividing the network into multiple virtualized slices optimized for specific use cases or applications. Multiple instances of NSSF (SST1 - SD1, SST1 - SD2, SST1 - SD3) are deployed to support diverse slicing requirements.
 
 The User Plane is responsible for handling data transmission and forwarding between User Equipments (UEs) and external networks. Key components in the User Plane include:
-1. *User Equipments (UEs)*: UE1, UE2, and UE3 are endpoints that access network services and communicate with the network infrastructure.
-2. *User Plane Function (UPF)*: UPF instances (UPF1, UPF2, UPF3) manage data forwarding and processing within the User Plane, ensuring efficient delivery of data packets to their intended destinations.
-3. *Session Management Function (SMF)*: SMF instances (SMF1, SMF2, SMF3) handle session establishment and management, maintaining session states and ensuring seamless connectivity for UEs.
+1. *User Equipments *: UE1, UE2, and UE3 are endpoints that access network services and communicate with the network infrastructure.
+2. *User Plane Function *: UPF instances (UPF1, UPF2, UPF3) manage data forwarding and processing within the User Plane, ensuring efficient delivery of data packets to their intended destinations.
+3. *Session Management Function *: SMF instances (SMF1, SMF2, SMF3) handle session establishment and management, maintaining session states and ensuring seamless connectivity for UEs.
 
 The Data Network hosts servers responsible for delivering specific services to users. Notable servers include:
 
 1. *NextCloud Server*: The NextCloud server, installed in the Data Network, provides File Sharing services to UEs, enabling users to store, access, and share files securely.
 2. *Asterisk Server*: The Asterisk server, also located in the Data Network, facilitates VoIP Calling services, allowing users to make voice calls over the IP network.
-3. *Twinkle Service*: Additionally, the Twinkle service, integrated into the Data Network, enhances communication capabilities by enabling Voice over IP (VoIP) calls, text messaging, and other multimedia communication features. Twinkle serves as a versatile client software package, complementing the Asterisk server to provide seamless VoIP calling functionalities within the network.
+3. *Owncast Service*: The Owncast server, installed in the Data Netowrk, provides hosting services for video streaming. Users can access the stream from this server all over the network.
+
+Below table shows the role of VMs and its configurations:
+
+| VM # | SW & Role | IP address | OS | Memory (Min) | HDD (Min) |
+| --- | --- | --- | --- | --- | --- |
+| VM1 | Open5GS C-Plane | 192.168.64.30/24 <br> 192.168.64.110/24 <br> 192.168.64.120/24 <br> 192.168.64.130/24 | Ubuntu 22.04 | 1GB | 20GB |
+| VM2 | Open5GS U-Plane1  | 192.168.64.40/24  | Ubuntu 22.04 | 1GB | 20GB |
+| VM3 | Open5GS U-Plane2 and Owncast server | 192.168.64.60/24 | Ubuntu 22.04 | 1GB | 20GB |
+| VM4 | Open5GS U-Plane3, Asterisk and Next Cloud server | 192.168.64.50/24 | Ubuntu 22.04 | 1GB | 20GB |
+| VM5 | UERANSIM gNB and UE | 192.168.64.10/24 | Ubuntu 22.04 | 1GB | 40GB |
+| VM6 | UERANSIM gNB and UE | 192.168.64.20/24 | Ubuntu 22.04 | 1GB | 40GB |
+
+Table1: VM roles and configuration
+
+| Network Function # | IP address | IP address on SBI | Supported S-NSSAI |
+| --- | --- | --- | --- |
+| AMF | 192.168.64.30 | 127.0.0.5 | SST: 1 SD: 1, SST: 1 SD: 2, SST: 1 SD: 3 |
+| NSSF-SST1-SD1 | 192.168.64.30  | 127.0.0.4   | Ubuntu 22.04 |
+| NSSF-SST1-SD2 | 192.168.64.30 | 127.0.0.24 | Ubuntu 22.04 |
+| NSSF-SST1-SD3 | 192.168.64.30 | 127.0.0.124 | Ubuntu 22.04 |
+
+Table2: AMF and NSSF configuration
+
+| Data Network # | S-NSSAI | Tunnel IP address | DNN | Tunnel name in UE | U-Plane |
+| --- | --- | --- | --- | --- | --- |
+| 10.45.0.1/16 | SST: 1. SD: 1 | ogstun/10.45.0.1 | internet | uesimtun0 | UPF1 |
+| 10.46.0.1/16 | SST: 1. SD: 2 | ogstun/10.46.0.1 | voip | uesimtun0 | UPF2 |
+| 10.47.0.1/16 | SST: 1. SD: 3 | ogstun/10.47.0.1 | internet2 | uesimtun0 | UPF3 |
+
+Table3: Data network configuration
 
 
 ## Implementation
@@ -225,9 +279,6 @@ UPF3 configuration: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entro
 
 ## Services
 
-### VoIP (Voice over Internet Protocol)
-
-Voice over IP (VoIP) revolutionizes communication by enabling voice calls over the internet, offering cost-effective communication, seamless integration with internet services, and features like video calls and instant messaging. Asterisk serves as the central server, orchestrating call routing, security, and other functions, while Linphone serves as client software, enabling users to make and receive calls, video calls, and instant messages using Asterisk's services. Together, Asterisk and Twinkle make VoIP a reality, ensuring smooth and secure communication. Additionally, Asterisk supports SIP-based applications beyond calling, while Linphone offers various plugins for customization and features. This overview provides insight into how these components collaborate to deliver internet-based communication, with active communities available for further guidance.
 
 ### Asterisk and Twinkle Configuration: 
 
@@ -243,12 +294,7 @@ On system startup, Kamailio requires manual initiation. The 'Zoiper' softphone w
 ```
 ```
 
-## File transfer
 
-File transfer is crucial in digital communication, allowing seamless sharing of files via methods like email, USB drives, and network protocols. Nextcloud, a popular cloud-based file-sharing system, offers a secure platform for users to upload, organize, and share files. It provides features such as share links, user accounts, and real-time collaboration, with installation packages available for different operating systems. Nextcloud's user-friendly web interface simplifies file management and collaboration, making it ideal for various environments. It offers customizable configurations for enterprise-level collaboration or personal usage, enabling secure and efficient data transmission.
-
-### Nextcloud: Secure File Sharing and Collaboration Platform
-Nextcloud has been installed on the system to facilitate seamless file sharing among users. Additionally, the Firefox browser has been installed within the LXC environment to configure both the admin and user profiles within the Nextcloud server. To access the Nextcloud server admin interface, users can navigate to the following URL: , where the IP address 10.167.53.194 corresponds to the LXC named 'nextcloud' housing the Nextcloud server installation. Upon registration as an admin in Nextcloud, two user profiles are created to enable access to file sharing services for the two User Equipments, each assigned to slices SST1, SD1 and SST1, SD2 respectively.
 
 Installation and setup of NextCloud: [Link](https://github.com/FRA-UAS/mobcomwise23-24-team_entropy/blob/main/UserGuide/Installing_NextCloud.md)
 
